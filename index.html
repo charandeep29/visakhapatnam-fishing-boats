@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visakhapatnam Mechanized Fishing Boats</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-container">
+
+            <img src="logo.png"
+                 alt="Fishing Harbour Logo"
+                 class="logo">
+
+            <div>
+
+                <h1>VISAKHAPATNAM MECHANIZED FISHING BOATS</h1>
+
+                <h3>VESSEL MONITORING & TRACKING SYSTEM</h3>
+
+                <h4>Department of Fisheries, Andhra Pradesh</h4>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- CLOCK -->
+
+    <div id="clock"></div>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="#dashboard">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+
+        <a href="#searchBoat">
+            <i class="fas fa-search"></i> Search Boat
+        </a>
+
+        <a href="#boatRegistrySection">
+            <i class="fas fa-ship"></i> Boat Registry
+        </a>
+
+        <a href="#reports">
+            <i class="fas fa-chart-bar"></i> Reports
+        </a>
+
+        <a href="#about">
+            <i class="fas fa-info-circle"></i> About
+        </a>
+
+    </nav>
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard" id="dashboard">
+
+        <div class="card">
+            <h2><i class="fas fa-ship"></i></h2>
+            <h3>Total Boats</h3>
+            <p id="totalBoats">0</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-water"></i></h2>
+            <h3>At Sea</h3>
+            <p id="atSea">0</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-location-arrow"></i></h2>
+            <h3>Arriving Harbour</h3>
+            <p id="arriving">0</p>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-anchor"></i></h2>
+            <h3>Reached Harbour</h3>
+            <p id="reached">0</p>
+        </div>
+
+    </div>
+
+    <!-- SEARCH BOAT -->
+
+    <section class="search-box" id="searchBoat">
+
+        <h2>
+            <i class="fas fa-search"></i>
+            Search Boat
+        </h2>
+
+        <input
+            type="text"
+            id="boatNumber"
+            placeholder="Enter Boat Number (INDAPVIMM001)">
+
+        <button onclick="searchBoat()">
+            <i class="fas fa-search"></i>
+            Search
+        </button>
+
+    </section>
+
+    <!-- SEARCH RESULT -->
+
+    <div id="result"></div>
+
+    <!-- GPS INFO -->
+
+    <section class="search-box">
+
+        <h2>
+            <i class="fas fa-map-marker-alt"></i>
+            GPS Tracking Information
+        </h2>
+
+        <p>
+            Search a boat number to view tracker ID,
+            latitude, longitude, vessel status and
+            Google Maps location.
+        </p>
+
+    </section>
+
+    <!-- BOAT REGISTRY -->
+
+    <section class="search-box" id="boatRegistrySection">
+
+        <h2>
+            <i class="fas fa-list"></i>
+            Registered Boats
+        </h2>
+
+        <input
+            type="text"
+            id="registrySearch"
+            placeholder="Search Boat Registry..."
+            onkeyup="filterRegistry()">
+
+        <br><br>
+
+        <button onclick="addBoatPrompt()">
+            ➕ Add New Boat
+        </button>
+
+        <br><br>
+
+        <div id="boatRegistry"></div>
+
+    </section>
+
+    <!-- REPORTS -->
+
+    <section class="search-box" id="reports">
+
+        <h2>
+            <i class="fas fa-chart-bar"></i>
+            Harbour Reports
+        </h2>
+
+        <div id="reportSection"></div>
+
+    </section>
+
+    <!-- CHART -->
+
+    <section class="search-box">
+
+        <h2>
+            <i class="fas fa-chart-pie"></i>
+            Boat Status Analytics
+        </h2>
+
+        <canvas id="boatChart"></canvas>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="search-box" id="about">
+
+        <h2>
+            <i class="fas fa-info-circle"></i>
+            About
+        </h2>
+
+        <p>
+            This Vessel Monitoring & Tracking System
+            is designed for monitoring fishing boats,
+            GPS locations, harbour arrivals and
+            registered vessel information in
+            Visakhapatnam Fishing Harbour.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            <i class="fas fa-anchor"></i>
+            © 2026 Visakhapatnam Mechanized Fishing Boats
+        </p>
+
+        <p>
+            Safe Harbour • Safe Journey
+        </p>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="boat.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+css
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    min-height:100vh;
+    background:url('sea-bg.png') no-repeat center center fixed;
+    background-size:cover;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.15);
+    z-index:-1;
+}
+
+/* HEADER */
+
+header{
+    background:rgba(255,255,255,0.95);
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:white;
+    padding:5px;
+    object-fit:cover;
+}
+
+header h1{
+    font-size:34px;
+    color:#003366;
+    font-weight:bold;
+    text-align:center;
+}
+
+header h3{
+    color:#0055aa;
+    margin-top:5px;
+}
+
+header h4{
+    color:#0077cc;
+    margin-top:5px;
+    font-size:16px;
+}
+
+/* CLOCK */
+
+#clock{
+    width:fit-content;
+    margin:15px auto;
+    padding:10px 20px;
+    border-radius:12px;
+    background:rgba(0,0,0,0.35);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    backdrop-filter:blur(5px);
+}
+
+/* NAVBAR */
+
+/* NAVBAR */
+
+.navbar{
+    background:#003b7a;
+    padding:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:30px;
+
+    flex-wrap:nowrap;
+    overflow-x:auto;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    white-space:nowrap;
+
+    padding:10px 15px;
+    border-radius:8px;
+
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    background:rgba(255,255,255,0.15);
+}
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+.navbar a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin:40px;
+}
+
+.card{
+    width:220px;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card:nth-child(1){
+    background:linear-gradient(135deg,#0077ff,#00bfff);
+}
+
+.card:nth-child(2){
+    background:linear-gradient(135deg,#e53935,#ff6b6b);
+}
+
+.card:nth-child(3){
+    background:linear-gradient(135deg,#ff9800,#ffb74d);
+}
+
+.card:nth-child(4){
+    background:linear-gradient(135deg,#00a651,#00d46a);
+}
+
+.card p{
+    font-size:40px;
+    margin-top:10px;
+}
+
+/* SEARCH SECTION */
+
+.search-box{
+    width:75%;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.92);
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.search-box h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+input{
+    width:350px;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+}
+
+/* SEARCH BUTTON */
+
+button{
+    padding:14px 25px;
+    border:none;
+    border-radius:10px;
+    background:#003366;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-left:10px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+/* RESULT */
+
+#result{
+    width:80%;
+    margin:30px auto;
+}
+
+.result-card{
+    background:rgba(255,255,255,0.96);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.boat-details-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.boat-info{
+    flex:1;
+}
+
+.boat-info h2{
+    color:#003366;
+    margin-bottom:15px;
+}
+
+.boat-info p{
+    margin:12px 0;
+    font-size:17px;
+}
+
+/* GPS BOX */
+
+.gps-box{
+    margin-top:15px;
+    padding:15px;
+    background:#eef7ff;
+    border-left:5px solid #0077cc;
+    border-radius:10px;
+}
+
+.gps-box p{
+    margin:5px 0;
+}
+
+/* BOAT IMAGE */
+
+.boat-image-section{
+    flex:1;
+    text-align:center;
+}
+
+.boat-image{
+    width:350px;
+    max-width:100%;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* STATUS */
+
+.red{
+    background:#e53935;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.orange{
+    background:#ff9800;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.green{
+    background:#00a651;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+footer p{
+    margin:5px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .header-container{
+        flex-direction:column;
+    }
+
+    .dashboard{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .search-box{
+        width:95%;
+    }
+
+    input{
+        width:90%;
+        margin-bottom:10px;
+    }
+
+    button{
+        width:90%;
+        margin:5px 0;
+    }
+
+    .boat-details-container{
+        flex-direction:column;
+    }
+
+    .boat-image{
+        width:100%;
+    }
+
+    #result{
+        width:95%;
+    }
+}
+.map-box{
+    margin-top:20px;
+    padding:15px;
+    background:#eef7ff;
+    border-left:5px solid #0077cc;
+    border-radius:10px;
+    text-align:left;
+}
+
+.map-box h3{
+    color:#003366;
+    margin-bottom:10px;
+}
