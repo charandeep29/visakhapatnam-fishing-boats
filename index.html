@@ -44,32 +44,35 @@
     <!-- CLOCK -->
 
     <div id="clock"></div>
-
+<div class="announcement">
+    <marquee scrollamount="8">
+        🚢 Welcome to Visakhapatnam Mechanized Fishing Boats Vessel Monitoring & Tracking System |
+        ⚓ Safe Harbour • Safe Journey |
+        🌊 Fisheries Department, Andhra Pradesh
+    </marquee>
+</div>
     <!-- NAVBAR -->
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <a href="#dashboard">
-            <i class="fas fa-home"></i> Dashboard
-        </a>
+    <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
 
-        <a href="#searchBoat">
-            <i class="fas fa-search"></i> Search Boat
-        </a>
+    <a href="#searchBoat"><i class="fas fa-search"></i> Search Boat</a>
 
-        <a href="#boatRegistrySection">
-            <i class="fas fa-ship"></i> Boat Registry
-        </a>
+    <a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a>
 
-        <a href="#reports">
-            <i class="fas fa-chart-bar"></i> Reports
-        </a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
 
-        <a href="#about">
-            <i class="fas fa-info-circle"></i> About
-        </a>
+<a href="#" onclick="openLogin()">
+    <i class="fas fa-user-shield"></i> Admin Login
+</a><a href="#"
+   id="logoutBtn"
+   onclick="adminLogout()"
+   style="display:none;">
+   <i class="fas fa-sign-out-alt"></i> Logout
+</a>
 
-    </nav>
+</nav>
 
     <!-- DASHBOARD -->
 
@@ -125,51 +128,51 @@
     <!-- SEARCH RESULT -->
 
     <div id="result"></div>
+<!-- REGISTERED BOATS -->
+
+<section class="search-box" id="boatRegistrySection">
+
+    <h2>
+        <i class="fas fa-ship"></i>
+        Registered Boats
+    </h2>
+
+    <button
+    id="addBoatBtn"
+    onclick="addBoatPrompt()"
+    style="display:none;">
+    ➕ Add New Boat
+</button>
+<button
+    id="downloadBtn"
+    onclick="downloadCSV()"
+    style="display:none;">
+    📥 Download Registry
+</button>
+
+<br><br>
+<br><br>
+
+<input
+    type="file"
+    id="csvFile"
+    accept=".csv"
+    onchange="importCSV(event)"
+    style="display:none;">
+<input
+    type="text"
+    id="registrySearch"
+    placeholder="🔍 Search Boat Registry..."
+    onkeyup="filterRegistry()">
+
+<br><br>
+
+<div id="boatRegistry"></div>
+</section>
 
     <!-- GPS INFO -->
 
-    <section class="search-box">
-
-        <h2>
-            <i class="fas fa-map-marker-alt"></i>
-            GPS Tracking Information
-        </h2>
-
-        <p>
-            Search a boat number to view tracker ID,
-            latitude, longitude, vessel status and
-            Google Maps location.
-        </p>
-
-    </section>
-
-    <!-- BOAT REGISTRY -->
-
-    <section class="search-box" id="boatRegistrySection">
-
-        <h2>
-            <i class="fas fa-list"></i>
-            Registered Boats
-        </h2>
-
-        <input
-            type="text"
-            id="registrySearch"
-            placeholder="Search Boat Registry..."
-            onkeyup="filterRegistry()">
-
-        <br><br>
-
-        <button onclick="addBoatPrompt()">
-            ➕ Add New Boat
-        </button>
-
-        <br><br>
-
-        <div id="boatRegistry"></div>
-
-    </section>
-
+    
     <!-- REPORTS -->
 
     <section class="search-box" id="reports">
@@ -183,19 +186,7 @@
 
     </section>
 
-    <!-- CHART -->
-
-    <section class="search-box">
-
-        <h2>
-            <i class="fas fa-chart-pie"></i>
-            Boat Status Analytics
-        </h2>
-
-        <canvas id="boatChart"></canvas>
-
-    </section>
-
+   
     <!-- ABOUT -->
 
     <section class="search-box" id="about">
@@ -214,6 +205,60 @@
         </p>
 
     </section>
+<!-- ADMIN LOGIN POPUP -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>🔐 Admin Login</h2>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter Username">
+
+        <br><br>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password">
+
+        <br><br>
+
+        <button onclick="checkLogin()">
+            Login
+        </button>
+
+        <button onclick="closeLogin()">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+<!-- SUCCESS POPUP -->
+
+<div id="successPopup" class="modal">
+
+    <div class="modal-content">
+
+        <h2 id="successTitle">
+            ✅ Success
+        </h2>
+
+        <p id="successText">
+            Operation completed successfully
+        </p>
+
+        <button onclick="closeSuccessPopup()">
+            Continue
+        </button>
+
+    </div>
+
+</div>
 
     <!-- FOOTER -->
 
@@ -231,8 +276,6 @@
     </footer>
 
     <!-- SCRIPTS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="boat.js"></script>
 
