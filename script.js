@@ -387,11 +387,6 @@ async function addBoatPrompt(){
 // ==========================
 
 window.onload = function(){
-// ==========================
-// PAGE LOADfunction addBoatPrompt()
-// ==========================
-
-window.onload = function(){
 
     updateClock();
 
