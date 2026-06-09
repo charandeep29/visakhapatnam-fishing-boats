@@ -23,14 +23,17 @@ function searchBoat(){
         .trim()
         .toUpperCase();
 
-    const matchedBoats =
-        boats.filter(
-            b =>
-                b.boatNumber.toUpperCase().includes(searchText) ||
-                b.boatName.toUpperCase().includes(searchText) ||
-                b.owner.toUpperCase().includes(searchText) ||
-                b.mobile.includes(searchText)
-        );
+    const matchedBoats = boats.filter(b =>
+
+    (b.boatNumber || "").toUpperCase().includes(searchText) ||
+
+    (b.boatName || "").toUpperCase().includes(searchText) ||
+
+    (b.owner || "").toUpperCase().includes(searchText) ||
+
+    (b.mobile || "").includes(searchText)
+
+);
 
     const result =
         document.getElementById("result");
@@ -67,6 +70,7 @@ function searchBoat(){
 <a
 href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}"
 target="_blank">
+
 📍 View on Google Maps
 
 </a>
