@@ -290,35 +290,6 @@ function loadReports(){
 // DELETE BOAT
 // ==========================
 
-function deleteBoat(boatNumber){
-
-    const confirmDelete =
-        confirm("Delete " + boatNumber + " ?");
-
-    if(!confirmDelete){
-        return;
-    }
-
-    const index =
-        boats.findIndex(
-            boat => boat.boatNumber === boatNumber
-        );
-
-    if(index !== -1){
-
-        boats.splice(index,1);
-        saveBoats();
-        loadBoatRegistry();
-        updateDashboard();
-        loadReports();
-        
-
-        openSuccessPopup(
-    "🗑️ Boat Deleted",
-    "Boat Removed Successfully"
-);
-    }
-}
 function saveBoats(){
 
     localStorage.setItem(
@@ -463,79 +434,6 @@ document.getElementById("downloadBtn").style.display =
 
 document.getElementById("csvFile").style.display =
     "none";
-}
-function editBoat(boatNumber){
-
-    const boat =
-    boats.find(
-        boat => boat.boatNumber === boatNumber
-    );
-
-    if(!boat){
-        return;
-    }
-
-    const newBoatNumber =
-        prompt(
-            "Enter Boat Number",
-            boat.boatNumber
-        );
-
-    const newBoatName =
-        prompt(
-            "Enter Boat Name",
-            boat.boatName
-        );
-
-    const newOwner =
-        prompt(
-            "Enter Owner Name",
-            boat.owner
-        );
-
-    const newMobile =
-        prompt(
-            "Enter Mobile Number",
-            boat.mobile
-        );
-
-    const newStatus =
-        prompt(
-            "Enter Status (At Sea / Arriving Harbour / Reached Harbour)",
-            boat.status
-        );
-
-    if(newBoatNumber){
-        boat.boatNumber = newBoatNumber;
-    }
-
-    if(newBoatName){
-        boat.boatName = newBoatName;
-    }
-
-    if(newOwner){
-        boat.owner = newOwner;
-    }
-
-    if(newMobile){
-        boat.mobile = newMobile;
-    }
-
-    if(newStatus){
-        boat.status = newStatus;
-    }
-    saveBoats();
-
-    loadBoatRegistry();
-
-    updateDashboard();
-
-    loadReports();
-
-    openSuccessPopup(
-    "✏️ Boat Updated",
-    "Boat Information Updated Successfully"
-);
 }
 // ==========================
 // DOWNLOAD CSV
@@ -729,7 +627,8 @@ function updateClock(){
         now.toLocaleDateString("en-IN") +
         " | " +
         now.toLocaleTimeString("en-IN");
-}window.updateDashboard = updateDashboard;
+}
+window.updateDashboard = updateDashboard;
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;

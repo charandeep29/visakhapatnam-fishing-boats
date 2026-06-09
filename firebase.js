@@ -4,7 +4,10 @@ import {
   getFirestore,
   collection,
   getDocs,
-  addDoc
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -23,6 +26,9 @@ window.db = db;
 window.collection = collection;
 window.getDocs = getDocs;
 window.addDoc = addDoc;
+window.updateDoc = updateDoc;
+window.deleteDoc = deleteDoc;
+window.doc = doc;
 
 console.log("Firebase Connected Successfully");
 async function loadFirebaseBoats() {
@@ -36,7 +42,10 @@ async function loadFirebaseBoats() {
 
         querySnapshot.forEach((doc) => {
 
-            boats.push(doc.data());
+            boats.push({
+    id: doc.id,
+    ...doc.data()
+});
 
         });
 
