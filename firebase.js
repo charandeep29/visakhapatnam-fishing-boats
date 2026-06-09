@@ -25,14 +25,25 @@ window.getDocs = getDocs;
 console.log("Firebase Connected Successfully");
 async function testFirestore() {
 
-    const querySnapshot =
-        await getDocs(collection(db, "boats"));
+    try {
 
-    querySnapshot.forEach((doc) => {
+        const querySnapshot =
+            await getDocs(collection(db, "boats"));
 
-        console.log("Boat Data:", doc.data());
+        console.log("Documents found:", querySnapshot.size);
 
-    });
+        querySnapshot.forEach((doc) => {
+
+            console.log("Boat Data:", doc.data());
+
+        });
+
+    } catch(error) {
+
+        console.error("Firestore Error:", error);
+
+    }
+
 }
 
 testFirestore();
