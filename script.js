@@ -388,17 +388,20 @@ async function addBoatPrompt(){
 
 window.onload = function(){
 
-    updateClock();
+    if(typeof updateClock === "function"){
 
-    setInterval(updateClock,1000);
+        updateClock();
 
-loadBoatRegistry();
+        setInterval(updateClock,1000);
 
-updateDashboard();
+    }
 
-loadReports();
-};
-function adminLogin(){
+    loadBoatRegistry();
+
+    updateDashboard();
+
+    loadReports();
+};function adminLogin(){
 
     const username =
         prompt("Enter Username");
@@ -716,20 +719,17 @@ function closeSuccessPopup(){
 }
 function updateClock(){
 
-    const clock =
-        document.getElementById("clock");
+    const clock = document.getElementById("clock");
 
-    if(clock){
+    if(!clock) return;
 
-        const now = new Date();
+    const now = new Date();
 
-        clock.innerHTML =
-            now.toLocaleDateString("en-IN") +
-            " | " +
-            now.toLocaleTimeString("en-IN");
-    }
-}
-window.updateDashboard = updateDashboard;
+    clock.innerHTML =
+        now.toLocaleDateString("en-IN") +
+        " | " +
+        now.toLocaleTimeString("en-IN");
+}window.updateDashboard = updateDashboard;
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;
