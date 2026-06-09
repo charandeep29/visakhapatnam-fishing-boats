@@ -1,15 +1,3 @@
-let isAdmin = false;
-if(localStorage.getItem("boats")){
-
-    boats.splice(
-        0,
-        boats.length,
-        ...JSON.parse(
-            localStorage.getItem("boats")
-        )
-    );
-}
-console.log("Boats Loaded:", boats);
 
 // ==========================
 // SEARCH BOAT
