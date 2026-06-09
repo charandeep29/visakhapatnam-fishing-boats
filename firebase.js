@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebas
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const db = getFirestore(app);
 window.db = db;
 window.collection = collection;
 window.getDocs = getDocs;
+window.addDoc = addDoc;
 
 console.log("Firebase Connected Successfully");
 async function loadFirebaseBoats() {

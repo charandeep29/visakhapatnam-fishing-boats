@@ -319,12 +319,15 @@ function deleteBoat(boatNumber){
 );
     }
 }
+function saveBoats(){
 
-// ==========================
-// ADD BOAT
-// ==========================
+    localStorage.setItem(
+        "boats",
+        JSON.stringify(boats)
+    );
+}
 
-function addBoatPrompt(){
+async function addBoatPrompt(){
 
     const boatNumber =
         prompt("Enter Boat Number");
@@ -338,61 +341,54 @@ function addBoatPrompt(){
     const mobile =
         prompt("Enter Mobile Number");
 
-    boats.push({
+    try{
 
-        boatNumber: boatNumber,
-        boatName: boatName,
-        owner: owner,
-        mobile: mobile,
+        await addDoc(
+            collection(db, "boats"),
+            {
+                boatNumber: boatNumber,
+                boatName: boatName,
+                owner: owner,
+                mobile: mobile,
 
-        harbour:
-        "Visakhapatnam Mechanized Fishing Boats Harbour",
+                harbour:
+                "Visakhapatnam Mechanized Fishing Boats Harbour",
 
-        crew: "0",
+                crew: "0",
 
-        trackerId:
-        "GPS" + (boats.length + 1),
+                trackerId:
+                "GPS" + Date.now(),
 
-        latitude: "17.6868",
+                latitude: "17.6868",
 
-        longitude: "83.2185",
+                longitude: "83.2185",
 
-        status: "Reached Harbour"
-    });
-    saveBoats();
-    loadBoatRegistry();
-    updateDashboard();
-    loadReports();
+                status: "Reached Harbour"
+            }
+        );
 
-    openSuccessPopup(
-    "🚤 Boat Added",
-    "New Boat Registered Successfully"
-);
-}
-function saveBoats(){
+        await loadFirebaseBoats();
 
-    localStorage.setItem(
-        "boats",
-        JSON.stringify(boats)
-    );
-}
-function updateClock(){
+        openSuccessPopup(
+            "🚤 Boat Added",
+            "Boat Saved To Firestore Successfully"
+        );
 
-    const clock =
-        document.getElementById("clock");
+    } catch(error){
 
-    if(clock){
+        console.error(error);
 
-        const now = new Date();
-
-        clock.innerHTML =
-            now.toLocaleDateString("en-IN") +
-            " | " +
-            now.toLocaleTimeString("en-IN");
+        alert("Failed To Save Boat");
     }
 }
+
 // ==========================
 // PAGE LOAD
+// ==========================
+
+window.onload = function(){
+// ==========================
+// PAGE LOADfunction addBoatPrompt()
 // ==========================
 
 window.onload = function(){
