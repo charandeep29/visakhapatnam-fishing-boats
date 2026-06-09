@@ -23,20 +23,26 @@ window.collection = collection;
 window.getDocs = getDocs;
 
 console.log("Firebase Connected Successfully");
-async function testFirestore() {
+async function loadFirebaseBoats() {
 
     try {
 
         const querySnapshot =
             await getDocs(collection(db, "boats"));
 
-        console.log("Documents found:", querySnapshot.size);
+        boats.length = 0;
 
         querySnapshot.forEach((doc) => {
 
-            console.log("Boat Data:", doc.data());
+            boats.push(doc.data());
 
         });
+
+        console.log("Firebase Boats Loaded:", boats);
+
+        updateDashboard();
+        loadBoatRegistry();
+        loadReports();
 
     } catch(error) {
 
@@ -46,4 +52,12 @@ async function testFirestore() {
 
 }
 
-testFirestore();
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        loadFirebaseBoats();
+
+    }, 1000);
+
+});
