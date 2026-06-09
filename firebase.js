@@ -42,9 +42,11 @@ async function loadFirebaseBoats() {
 
         querySnapshot.forEach((doc) => {
 
-            boats.push({
-    id: doc.id,
-    ...doc.data()
+    boats.push({
+        id: doc.id,
+        ...doc.data()
+    });
+
 });
 
         });
