@@ -343,8 +343,8 @@ async function addBoatPrompt(){
 
     try{
 
-        await addDoc(
-            collection(db, "boats"),
+        await window.addDoc(
+    window.collection(window.db, "boats"),
             {
                 boatNumber: boatNumber,
                 boatName: boatName,
