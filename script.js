@@ -714,3 +714,22 @@ function closeSuccessPopup(){
     document.getElementById("successPopup")
         .style.display = "none";
 }
+function updateClock(){
+
+    const clock =
+        document.getElementById("clock");
+
+    if(clock){
+
+        const now = new Date();
+
+        clock.innerHTML =
+            now.toLocaleDateString("en-IN") +
+            " | " +
+            now.toLocaleTimeString("en-IN");
+    }
+}
+window.updateDashboard = updateDashboard;
+window.loadBoatRegistry = loadBoatRegistry;
+window.loadReports = loadReports;
+window.updateClock = updateClock;

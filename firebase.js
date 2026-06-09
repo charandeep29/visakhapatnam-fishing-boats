@@ -42,7 +42,7 @@ async function loadFirebaseBoats() {
 
         console.log("Firebase Boats Loaded:", boats);
 
-        updateDashboard();
+        window.updateDashboard();
         loadBoatRegistry();
         loadReports();
 
