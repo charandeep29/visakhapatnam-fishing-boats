@@ -23,3 +23,16 @@ window.collection = collection;
 window.getDocs = getDocs;
 
 console.log("Firebase Connected Successfully");
+async function testFirestore() {
+
+    const querySnapshot =
+        await getDocs(collection(db, "boats"));
+
+    querySnapshot.forEach((doc) => {
+
+        console.log("Boat Data:", doc.data());
+
+    });
+}
+
+testFirestore();
