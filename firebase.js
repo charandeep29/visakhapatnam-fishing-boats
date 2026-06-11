@@ -29,6 +29,7 @@ window.addDoc = addDoc;
 window.updateDoc = updateDoc;
 window.deleteDoc = deleteDoc;
 window.doc = doc;
+console.log("Firebase Connected Successfully");
 
 async function loadFirebaseBoats() {
 
@@ -50,10 +51,9 @@ async function loadFirebaseBoats() {
 
         console.log("Firebase Boats Loaded:", boats);
 
-        updateDashboard();
-        loadBoatRegistry();
-        loadReports();
-
+window.updateDashboard();
+window.loadBoatRegistry();
+window.loadReports();
     } catch(error) {
 
         console.error("Firestore Error:", error);
