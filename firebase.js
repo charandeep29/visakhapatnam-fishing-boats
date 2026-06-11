@@ -30,12 +30,44 @@ window.updateDoc = updateDoc;
 window.deleteDoc = deleteDoc;
 window.doc = doc;
 
-console.log("Firebase Connected Successfully");
-querySnapshot.forEach((doc) => {
+async function loadFirebaseBoats() {
 
-    boats.push({
-        id: doc.id,
-        ...doc.data()
-    });
+    try {
+
+        const querySnapshot =
+            await getDocs(collection(db, "boats"));
+
+        boats.length = 0;
+
+        querySnapshot.forEach((doc) => {
+
+            boats.push({
+                id: doc.id,
+                ...doc.data()
+            });
+
+        });
+
+        console.log("Firebase Boats Loaded:", boats);
+
+        updateDashboard();
+        loadBoatRegistry();
+        loadReports();
+
+    } catch(error) {
+
+        console.error("Firestore Error:", error);
+
+    }
+
+}
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        loadFirebaseBoats();
+
+    }, 1000);
 
 });
