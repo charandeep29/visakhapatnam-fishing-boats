@@ -368,6 +368,12 @@ window.onload = function(){
     }
 
     loadLiveTracking();
+
+    setInterval(() => {
+
+        loadLiveTracking();
+
+    }, 30000);
 };function adminLogin(){
 
     const username =
