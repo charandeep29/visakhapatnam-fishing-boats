@@ -367,11 +367,7 @@ window.onload = function(){
 
     }
 
-    loadBoatRegistry();
-
-    updateDashboard();
-
-    loadReports();
+    loadLiveTracking();
 };function adminLogin(){
 
     const username =
@@ -632,3 +628,38 @@ window.updateDashboard = updateDashboard;
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;
+async function loadLiveTracking() {
+
+    try {
+
+        const querySnapshot =
+            await window.getDocs(
+                window.collection(
+                    window.db,
+                    "live_tracking"
+                )
+            );
+
+        boats.length = 0;
+
+        querySnapshot.forEach((doc) => {
+
+            boats.push({
+                id: doc.id,
+                ...doc.data()
+            });
+
+        });
+
+        console.log("Live Tracking Loaded:", boats);
+
+        loadBoatRegistry();
+        updateDashboard();
+        loadReports();
+
+    } catch(error) {
+
+        console.error(error);
+
+    }
+}
