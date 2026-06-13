@@ -177,16 +177,21 @@ style="cursor:pointer;">
 
 <td>
 
-<span class="${
-    boat.status === "At Sea"
-    ? "red"
-    : boat.status === "Arriving Harbour"
-    ? "orange"
-    : "green"
-}">
-${boat.status}
-</span>
+<td>
 
+${
+    boat.status === "EMERGENCY SOS"
+    ? `<span style="color:red;font-weight:bold;font-size:18px;">
+        🚨 EMERGENCY SOS
+       </span>`
+    : boat.status === "At Sea"
+    ? `<span class="red">🌊 At Sea</span>`
+    : boat.status === "Arriving Harbour"
+    ? `<span class="orange">🟠 Arriving Harbour</span>`
+    : `<span class="green">⚓ Reached Harbour</span>`
+}
+
+</td>
 </td>
 
 <td>
