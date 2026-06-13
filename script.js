@@ -367,14 +367,15 @@ window.onload = function(){
 
     }
 
-    loadLiveTracking();
+    loadFirebaseBoats();
 
     setInterval(() => {
 
-        loadLiveTracking();
+        loadFirebaseBoats();
 
-    }, 30000);
-};function adminLogin(){
+    }, 5000);
+};
+function adminLogin(){
 
     const username =
         prompt("Enter Username");
@@ -634,7 +635,8 @@ window.updateDashboard = updateDashboard;
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;
-async function loadLiveTracking() {
+
+async function loadFirebaseBoats() {
 
     try {
 
@@ -642,7 +644,7 @@ async function loadLiveTracking() {
             await window.getDocs(
                 window.collection(
                     window.db,
-                    "live_tracking"
+                    "boats"
                 )
             );
 
@@ -657,7 +659,7 @@ async function loadLiveTracking() {
 
         });
 
-        console.log("Live Tracking Loaded:", boats);
+        console.log("Boats Loaded:", boats);
 
         loadBoatRegistry();
         updateDashboard();
