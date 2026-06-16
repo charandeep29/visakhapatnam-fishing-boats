@@ -364,6 +364,10 @@ async function addBoatPrompt(){
 
 window.onload = function(){
 
+    if(typeof loadWeather === "function"){
+        loadWeather();
+    }
+
     if(typeof updateClock === "function"){
 
         updateClock();
@@ -675,4 +679,93 @@ async function loadFirebaseBoats() {
         console.error(error);
 
     }
+}
+// ==========================
+// WEATHER PANEL
+// ==========================
+
+async function loadWeather() {
+
+    const apiKey =
+    "YOUR_API_KEY_HERE";
+
+    const city =
+    "Visakhapatnam";
+
+    try {
+
+        const response =
+        await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+        );
+
+        const data =
+        await response.json();
+
+        let status =
+        "🟢 SAFE";
+
+        let cssClass =
+        "safe";
+
+        if(data.wind.speed > 10){
+
+            status =
+            "🟡 CAUTION";
+
+            cssClass =
+            "caution";
+
+        }
+
+        if(data.wind.speed > 20){
+
+            status =
+            "🔴 DANGER";
+
+            cssClass =
+            "danger";
+
+        }
+
+        document.getElementById(
+        "weatherPanel"
+        ).innerHTML = `
+
+        <div class="weather-card">
+
+            <h3>
+            🌡 Temperature :
+            ${data.main.temp} °C
+            </h3>
+
+            <h3>
+            💨 Wind Speed :
+            ${data.wind.speed} m/s
+            </h3>
+
+            <h3>
+            ☁ Condition :
+            ${data.weather[0].main}
+            </h3>
+
+            <h3 class="${cssClass}">
+            ${status}
+            </h3>
+
+        </div>
+
+        `;
+
+    }
+
+    catch(error){
+
+        console.error(
+        "Weather Error",
+        error
+        );
+
+    }
+
 }
