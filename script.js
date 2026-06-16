@@ -168,6 +168,20 @@ function updateDashboard(){
         boats.filter(
             boat => boat.status === "EMERGENCY SOS"
         ).length;
+document.getElementById("boatsDeparted").innerHTML =
+boats.filter(
+boat => boat.status === "At Sea"
+).length;
+
+document.getElementById("boatsArrived").innerHTML =
+boats.filter(
+boat => boat.status === "Reached Harbour"
+).length;
+
+document.getElementById("activeSOS").innerHTML =
+boats.filter(
+boat => boat.status === "EMERGENCY SOS"
+).length;
 }// ==========================
 // DELETE BOAT
 // ==========================
@@ -421,8 +435,6 @@ function importCSV(event){
 
         updateDashboard();
 
-        loadReports();
-
         openSuccessPopup(
     "📂 Import Successful",
     "Boat Registry Imported Successfully"
@@ -667,8 +679,6 @@ async function loadFirebaseBoats() {
         updateDashboard();
 
 loadSOSHistory();
-
-loadReports();
     } catch(error) {
 
         console.error(error);
@@ -823,6 +833,7 @@ Weather Service Unavailable
 <p>${error.message}</p>
 
 </div>
+
 
 `;
 
