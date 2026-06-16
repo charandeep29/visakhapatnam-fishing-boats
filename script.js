@@ -97,90 +97,67 @@ target="_blank">
 
 function selectBoat(boatNumber){
 
-    const boat =
-    boats.find(
+    const boat = boats.find(
         b => b.boatNumber === boatNumber
     );
 
     if(!boat) return;
 
-    document.getElementById("result").innerHTML = `
+    document.getElementById("boatModalBody").innerHTML = `
 
-    <div class="result-card">
+        <div class="boat-detail">
+            <b>Boat Number:</b> ${boat.boatNumber}
+        </div>
 
-        <h2>⚓ Boat Details</h2>
+        <div class="boat-detail">
+            <b>Boat Name:</b> ${boat.boatName}
+        </div>
 
-        <p><b>Boat Number:</b> ${boat.boatNumber}</p>
+        <div class="boat-detail">
+            <b>Owner:</b> ${boat.owner}
+        </div>
 
-        <p><b>Boat Name:</b> ${boat.boatName}</p>
+        <div class="boat-detail">
+            <b>Mobile:</b> ${boat.mobile}
+        </div>
 
-        <p><b>Owner:</b> ${boat.owner}</p>
+        <div class="boat-detail">
+            <b>Harbour:</b> ${boat.harbour}
+        </div>
 
-        <p><b>Mobile:</b> ${boat.mobile}</p>
+        <div class="boat-detail">
+            <b>Crew:</b> ${boat.crew}
+        </div>
 
-        <p><b>Harbour:</b> ${boat.harbour}</p>
+        <div class="boat-detail">
+            <b>Tracker ID:</b> ${boat.trackerId}
+        </div>
 
-        <p><b>Crew:</b> ${boat.crew}</p>
+        <div class="boat-detail">
+            <b>Status:</b> ${boat.status}
+        </div>
 
-        <p><b>Tracker ID:</b> ${boat.trackerId}</p>
+        <div class="boat-detail">
+            <b>Latitude:</b> ${boat.latitude}
+        </div>
 
-        <p><b>Latitude:</b> ${boat.latitude}</p>
+        <div class="boat-detail">
+            <b>Longitude:</b> ${boat.longitude}
+        </div>
 
-        <p><b>Longitude:</b> ${boat.longitude}</p>
-
-        <p><b>Status:</b> ${boat.status}</p>
-
-        <p>
-            <a
-            href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}"
-            target="_blank">
-            📍 View On Google Maps
-            </a>
-        </p>
-
-    </div>
+        <a
+        class="map-link"
+        target="_blank"
+        href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}">
+        📍 View On Google Maps
+        </a>
 
     `;
 
-    document.getElementById("result")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-}
-
-// ==========================
-// REGISTRY SEARCH
-// ==========================
-
-function filterRegistry(){
-
-    const input =
-        document.getElementById("registrySearch")
-        .value
-        .toUpperCase();
-
-    const rows =
-        document.querySelectorAll(
-            "#boatRegistry table tr"
-        );
-
-    rows.forEach((row,index)=>{
-
-        if(index === 0){
-            return;
-        }
-
-        const text =
-            row.innerText.toUpperCase();
-
-        row.style.display =
-            text.includes(input)
-            ? ""
-            : "none";
-    });
-}
-
-// ==========================
+    document.getElementById(
+        "boatModal"
+    ).style.display = "block";
+}// ==========================
 // DASHBOARD
 // ==========================
 
@@ -217,7 +194,15 @@ document.getElementById("activeSOS").innerHTML =
 boats.filter(
 boat => boat.status === "EMERGENCY SOS"
 ).length;
-}// ==========================
+}
+function closeBoatModal(){
+
+    document.getElementById(
+    "boatModal"
+    ).style.display = "none";
+
+}
+// ==========================
 // DELETE BOAT
 // ==========================
 
@@ -684,6 +669,8 @@ function loadBoatRegistry(){
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;
+window.selectBoat = selectBoat;
+window.closeBoatModal = closeBoatModal;
 
 async function loadFirebaseBoats() {
 

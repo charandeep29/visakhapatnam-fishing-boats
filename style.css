@@ -739,3 +739,83 @@ footer p{
 
     font-weight:bold;
 }
+/* BOAT DETAILS POPUP */
+
+.boat-modal-content{
+
+    background:white;
+
+    width:650px;
+
+    max-width:95%;
+
+    margin:5% auto;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+
+    position:relative;
+}
+
+.close-btn{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    color:red;
+
+    font-weight:bold;
+}
+
+.close-btn:hover{
+
+    transform:scale(1.1);
+}
+
+.boat-modal-content h2{
+
+    color:#003366;
+
+    margin-bottom:20px;
+
+    text-align:center;
+}
+
+.boat-detail{
+
+    margin:12px 0;
+
+    font-size:18px;
+}
+
+.map-link{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 15px;
+
+    background:#003b7a;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+}
+
+.map-link:hover{
+
+    background:#0055aa;
+}
