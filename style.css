@@ -401,4 +401,47 @@ footer p{
     background:#ffd000;
     padding:10px;
     font-weight:bold;
+}.weather-card{
+
+    background:#eef7ff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-top:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+}
+
+.weather-card h3{
+
+    margin:10px 0;
+
+    color:#003366;
+
+}
+
+.safe{
+    color:green;
+    font-weight:bold;
+}
+
+.caution{
+    color:orange;
+    font-weight:bold;
+}
+
+.danger{
+    color:red;
+    font-weight:bold;
+}.sos-card{
+    background:#dc3545 !important;
+}
+
+.sos-card h2,
+.sos-card h3,
+.sos-card p{
+    color:white;
 }
