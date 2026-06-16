@@ -518,6 +518,122 @@ function updateClock(){
         now.toLocaleTimeString("en-IN");
 }
 window.updateDashboard = updateDashboard;
+function loadBoatRegistry(){
+
+    const registry =
+    document.getElementById("boatRegistry");
+
+    if(!registry) return;
+
+    let html = `
+
+    <div class="registry-overview">
+
+        <div class="overview-card">
+            🚢 Total Boats : ${boats.length}
+        </div>
+
+        <div class="overview-card">
+            🌊 At Sea : ${
+                boats.filter(
+                boat => boat.status === "At Sea"
+                ).length
+            }
+        </div>
+
+        <div class="overview-card">
+            ⚓ Harbour : ${
+                boats.filter(
+                boat => boat.status === "Reached Harbour"
+                ).length
+            }
+        </div>
+
+    </div>
+
+    <table class="registry-table">
+
+        <tr>
+
+            <th>Boat Number</th>
+            <th>Boat Name</th>
+            <th>Owner</th>
+            <th>Status</th>
+            <th>Action</th>
+
+        </tr>
+
+    `;
+
+    boats.forEach(boat => {
+
+        let statusBadge = "";
+
+        if(boat.status === "EMERGENCY SOS"){
+
+            statusBadge =
+            `<span class="status-red">
+            🚨 SOS Alert
+            </span>`;
+
+        }
+        else if(boat.status === "At Sea"){
+
+            statusBadge =
+            `<span class="status-orange">
+            🌊 At Sea
+            </span>`;
+
+        }
+        else if(boat.status === "Arriving Harbour"){
+
+            statusBadge =
+            `<span class="status-orange">
+            🧭 Arriving Harbour
+            </span>`;
+
+        }
+        else{
+
+            statusBadge =
+            `<span class="status-green">
+            ⚓ Reached Harbour
+            </span>`;
+        }
+
+        html += `
+
+        <tr>
+
+            <td>${boat.boatNumber}</td>
+
+            <td>${boat.boatName}</td>
+
+            <td>${boat.owner}</td>
+
+            <td>${statusBadge}</td>
+
+            <td>
+
+                <button
+                class="view-btn"
+                onclick="selectBoat('${boat.boatNumber}')">
+
+                👁 View
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+    });
+
+    html += `</table>`;
+
+    registry.innerHTML = html;
+}
 window.loadBoatRegistry = loadBoatRegistry;
 window.loadReports = loadReports;
 window.updateClock = updateClock;

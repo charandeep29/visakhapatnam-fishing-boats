@@ -842,3 +842,73 @@ footer p{
 
     background:#0055aa;
 }
+.registry-overview{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.overview-card{
+    background:#003b7a;
+    color:white;
+    padding:15px 30px;
+    border-radius:12px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.registry-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.registry-table th{
+    background:#003b7a;
+    color:white;
+    padding:15px;
+}
+
+.registry-table td{
+    padding:15px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+.status-green{
+    background:#00a651;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-orange{
+    background:#ff9800;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-red{
+    background:#dc3545;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.view-btn{
+    background:#003b7a;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.view-btn:hover{
+    background:#0055aa;
+}
