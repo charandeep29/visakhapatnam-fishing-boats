@@ -133,10 +133,10 @@ header h4{
     width:95%;
     margin:40px auto;
 
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-
+    display:flex;
+    justify-content:center;
     gap:25px;
+    flex-wrap:wrap;
 }
 
 .card{
@@ -775,66 +775,54 @@ footer p{
 
     background:white;
 
-    width:650px;
+    width:500px;
 
-    max-width:95%;
+    max-width:90%;
 
-    margin:5% auto;
+    margin:100px auto;
 
-    padding:30px;
+    padding:25px;
 
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    border-radius:15px;
 
     position:relative;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.boat-detail{
+
+    padding:10px 0;
+
+    border-bottom:1px solid #ddd;
+
+    font-size:18px;
 }
 
 .close-btn{
 
     position:absolute;
 
-    top:15px;
-
     right:20px;
+
+    top:15px;
 
     font-size:24px;
 
     cursor:pointer;
 
     color:red;
-
-    font-weight:bold;
-}
-
-.close-btn:hover{
-
-    transform:scale(1.1);
-}
-
-.boat-modal-content h2{
-
-    color:#003366;
-
-    margin-bottom:20px;
-
-    text-align:center;
-}
-
-.boat-detail{
-
-    margin:12px 0;
-
-    font-size:18px;
 }
 
 .map-link{
 
-    display:inline-block;
+    display:block;
 
-    margin-top:15px;
+    text-align:center;
 
-    padding:10px 15px;
+    margin-top:20px;
+
+    padding:12px;
 
     background:#003b7a;
 
@@ -843,9 +831,4 @@ footer p{
     text-decoration:none;
 
     border-radius:10px;
-}
-
-.map-link:hover{
-
-    background:#0055aa;
 }

@@ -97,59 +97,44 @@ target="_blank">
 
 function selectBoat(boatNumber){
 
-    const boat = boats.find(
+    const boat =
+    boats.find(
         b => b.boatNumber === boatNumber
     );
 
     if(!boat) return;
 
-    document.getElementById("boatModalBody").innerHTML = `
+    document.getElementById(
+        "boatModalBody"
+    ).innerHTML = `
 
         <div class="boat-detail">
-            <b>Boat Number:</b> ${boat.boatNumber}
+            <b>Boat Number :</b> ${boat.boatNumber}
         </div>
 
         <div class="boat-detail">
-            <b>Boat Name:</b> ${boat.boatName}
+            <b>Boat Name :</b> ${boat.boatName}
         </div>
 
         <div class="boat-detail">
-            <b>Owner:</b> ${boat.owner}
+            <b>Owner :</b> ${boat.owner}
         </div>
 
         <div class="boat-detail">
-            <b>Mobile:</b> ${boat.mobile}
+            <b>Mobile :</b> ${boat.mobile}
         </div>
 
         <div class="boat-detail">
-            <b>Harbour:</b> ${boat.harbour}
+            <b>Status :</b> ${boat.status}
         </div>
 
-        <div class="boat-detail">
-            <b>Crew:</b> ${boat.crew}
-        </div>
-
-        <div class="boat-detail">
-            <b>Tracker ID:</b> ${boat.trackerId}
-        </div>
-
-        <div class="boat-detail">
-            <b>Status:</b> ${boat.status}
-        </div>
-
-        <div class="boat-detail">
-            <b>Latitude:</b> ${boat.latitude}
-        </div>
-
-        <div class="boat-detail">
-            <b>Longitude:</b> ${boat.longitude}
-        </div>
+        <br>
 
         <a
         class="map-link"
         target="_blank"
         href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}">
-        📍 View On Google Maps
+        📍 Open GPS Location
         </a>
 
     `;
@@ -157,7 +142,8 @@ function selectBoat(boatNumber){
     document.getElementById(
         "boatModal"
     ).style.display = "block";
-}// ==========================
+}
+// ==========================
 // DASHBOARD
 // ==========================
 
