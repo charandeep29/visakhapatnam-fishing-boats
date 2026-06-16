@@ -97,15 +97,55 @@ target="_blank">
 
 function selectBoat(boatNumber){
 
-    document.getElementById("boatNumber").value =
-        boatNumber;
+    const boat =
+    boats.find(
+        b => b.boatNumber === boatNumber
+    );
 
-    searchBoat();
+    if(!boat) return;
+
+    document.getElementById("result").innerHTML = `
+
+    <div class="result-card">
+
+        <h2>⚓ Boat Details</h2>
+
+        <p><b>Boat Number:</b> ${boat.boatNumber}</p>
+
+        <p><b>Boat Name:</b> ${boat.boatName}</p>
+
+        <p><b>Owner:</b> ${boat.owner}</p>
+
+        <p><b>Mobile:</b> ${boat.mobile}</p>
+
+        <p><b>Harbour:</b> ${boat.harbour}</p>
+
+        <p><b>Crew:</b> ${boat.crew}</p>
+
+        <p><b>Tracker ID:</b> ${boat.trackerId}</p>
+
+        <p><b>Latitude:</b> ${boat.latitude}</p>
+
+        <p><b>Longitude:</b> ${boat.longitude}</p>
+
+        <p><b>Status:</b> ${boat.status}</p>
+
+        <p>
+            <a
+            href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}"
+            target="_blank">
+            📍 View On Google Maps
+            </a>
+        </p>
+
+    </div>
+
+    `;
 
     document.getElementById("result")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 }
 
 // ==========================
