@@ -686,8 +686,8 @@ async function loadFirebaseBoats() {
 
 async function loadWeather() {
 
-    const apiKey =
-    "YOUR_API_KEY_HERE";
+const apiKey =
+"bd624515b95decbaaa93805687a56374";
 
     const city =
     "Visakhapatnam";
@@ -700,72 +700,27 @@ async function loadWeather() {
         );
 
         const data =
-        await response.json();
+await response.json();
 
-        let status =
-        "🟢 SAFE";
+console.log(data);
 
-        let cssClass =
-        "safe";
+if(data.cod != 200){
 
-        if(data.wind.speed > 10){
+document.getElementById(
+"weatherPanel"
+).innerHTML = `
 
-            status =
-            "🟡 CAUTION";
+<div class="weather-card">
 
-            cssClass =
-            "caution";
+<h3 style="color:red;">
+Weather API Error
+</h3>
 
-        }
+<p>${data.message}</p>
 
-        if(data.wind.speed > 20){
+</div>
 
-            status =
-            "🔴 DANGER";
+`;
 
-            cssClass =
-            "danger";
-
-        }
-
-        document.getElementById(
-        "weatherPanel"
-        ).innerHTML = `
-
-        <div class="weather-card">
-
-            <h3>
-            🌡 Temperature :
-            ${data.main.temp} °C
-            </h3>
-
-            <h3>
-            💨 Wind Speed :
-            ${data.wind.speed} m/s
-            </h3>
-
-            <h3>
-            ☁ Condition :
-            ${data.weather[0].main}
-            </h3>
-
-            <h3 class="${cssClass}">
-            ${status}
-            </h3>
-
-        </div>
-
-        `;
-
-    }
-
-    catch(error){
-
-        console.error(
-        "Weather Error",
-        error
-        );
-
-    }
-
+return;
 }
