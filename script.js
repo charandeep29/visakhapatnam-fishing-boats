@@ -200,21 +200,31 @@ ${isAdmin ? `
 
 <button
 onclick="editBoat('${boat.boatNumber}');event.stopPropagation();"
-style="background:orange;color:white;border:none;padding:5px 10px;border-radius:5px;margin-right:5px;">
+style="background:#ff9800;color:white;border:none;padding:8px 14px;border-radius:8px;margin-right:5px;font-weight:bold;">
 
-Edit
+✏ Edit
 
 </button>
 
 <button
 onclick="deleteBoat('${boat.boatNumber}');event.stopPropagation();"
-style="background:red;color:white;border:none;padding:5px 10px;border-radius:5px;">
+style="background:#dc3545;color:white;border:none;padding:8px 14px;border-radius:8px;font-weight:bold;">
 
-Delete
+🗑 Delete
 
 </button>
 
-` : "Viewer"}
+` : `
+
+<button
+class="view-btn"
+onclick="selectBoat('${boat.boatNumber}');event.stopPropagation();">
+
+👁 View
+
+</button>
+
+`}
 
 </td>`;
     });

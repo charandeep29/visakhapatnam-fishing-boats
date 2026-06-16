@@ -128,19 +128,12 @@ header h4{
 /* DASHBOARD */
 
 .dashboard{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(6,180px);
-
+    display:flex;
+    flex-wrap:wrap;
     justify-content:center;
-
-    gap:20px;
-
+    gap:25px;
     margin:40px auto;
-}
-.card{
+}.card{
     width:220px;
     min-height:220px;
 
@@ -647,15 +640,29 @@ footer p{
 }
 
 .registry-stats div{
-    background:#003b7a;
-    color:white;
-    padding:12px 20px;
-    border-radius:10px;
-    font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
 
-/* TABLE */
+    background:linear-gradient(
+        135deg,
+        #003b7a,
+        #0055aa
+    );
+
+    color:white;
+
+    padding:18px 30px;
+
+    border-radius:15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    min-width:180px;
+
+    text-align:center;
+
+    box-shadow:0 6px 15px rgba(0,0,0,0.25);
+}/* TABLE */
 
 #boatRegistry table{
     width:100%;
@@ -664,11 +671,20 @@ footer p{
 }
 
 #boatRegistry th{
-    background:#003b7a;
+
+    background:linear-gradient(
+        135deg,
+        #003366,
+        #004c99
+    );
+
     color:white;
-    padding:15px;
-    font-size:17px;
-    text-align:center;
+
+    padding:16px;
+
+    font-size:18px;
+
+    letter-spacing:0.5px;
 }
 
 #boatRegistry td{
@@ -678,7 +694,11 @@ footer p{
 }
 
 #boatRegistry tr:hover{
-    background:#eaf6ff;
+
+    background:#dceeff;
+
+    transform:scale(1.01);
+
     transition:0.3s;
 }
 
@@ -728,4 +748,25 @@ footer p{
 #boatRegistrySection h2{
     font-size:36px;
     color:#003b7a;
+}
+.view-btn{
+
+    background:#003b7a;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 16px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.view-btn:hover{
+
+    background:#0055aa;
 }
