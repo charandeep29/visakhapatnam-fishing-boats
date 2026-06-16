@@ -770,3 +770,75 @@ footer p{
 
     background:#0055aa;
 }
+/* PROFESSIONAL REGISTRY TABLE */
+
+.registry-table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.registry-table th{
+
+    background:#003b7a;
+    color:white;
+    padding:15px;
+    font-size:18px;
+}
+
+.registry-table td{
+
+    padding:15px;
+    text-align:center;
+    background:rgba(255,255,255,0.85);
+    border:1px solid #dcdcdc;
+}
+
+.registry-table tr:hover{
+
+    background:#eef7ff;
+}
+
+.status-green{
+
+    background:#00a651;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-orange{
+
+    background:#ff9800;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-red{
+
+    background:#dc3545;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.view-btn{
+
+    background:#003b7a;
+    color:white;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.view-btn:hover{
+
+    background:#0055aa;
+}
