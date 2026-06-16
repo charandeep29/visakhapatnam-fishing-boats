@@ -44,6 +44,11 @@
     <!-- CLOCK -->
 
     <div id="clock"></div>
+<div id="sosBanner" style="display:none;">
+
+    🚨 EMERGENCY ALERT ACTIVE
+
+</div>
 <div class="announcement">
     <marquee scrollamount="8">
         🚢 Welcome to Visakhapatnam Mechanized Fishing Boats Vessel Monitoring & Tracking System |
@@ -111,7 +116,37 @@
         </div>
 
     </div>
+<!-- SEA SAFETY STATUS -->
 
+<!-- SEA SAFETY STATUS -->
+
+<div class="sea-safety-card">
+
+    <h2>🌊 Sea Safety Status</h2>
+
+    <h3 class="safe-status">
+        🟢 SAFE FOR FISHING
+    </h3>
+
+    <p id="seaTemp">🌡 Temperature : 31°C</p>
+
+    <p id="seaWind">💨 Wind Speed : 8 m/s</p>
+
+    <p id="seaCondition">☁ Clear Sky</p>
+
+</div>
+
+<!-- EMERGENCY ALERT PANEL -->
+
+<div class="emergency-panel">
+
+    <h2>🚨 Active Emergency Alerts</h2>
+
+    <p id="emergencyText">
+        No Active SOS Alerts
+    </p>
+
+</div>
     <!-- SEARCH BOAT -->
 
     <section class="search-box" id="searchBoat">
@@ -190,13 +225,15 @@
 
     <div id="weatherPanel">
 
-        Loading Weather Data...
+    Loading Weather Data...
 
-    </div>
+</div>
+
+</section>
+
 <!-- SOS ALERT HISTORY -->
 
 <section class="search-box" id="sosHistory">
-
     <h2>
         🚨 SOS Alert History
     </h2>
