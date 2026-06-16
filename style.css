@@ -129,11 +129,12 @@ header h4{
 
 .dashboard{
     display:flex;
-    flex-wrap:wrap;
     justify-content:center;
-    gap:25px;
+    flex-wrap:wrap;
+    gap:30px;
     margin:40px auto;
-}.card{
+}
+.card{
     width:220px;
     min-height:220px;
 

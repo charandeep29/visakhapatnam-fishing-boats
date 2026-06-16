@@ -154,11 +154,6 @@ function updateDashboard(){
             boat => boat.status === "At Sea"
         ).length;
 
-    document.getElementById("arriving").innerHTML =
-        boats.filter(
-            boat => boat.status === "Arriving Harbour"
-        ).length;
-
     document.getElementById("reached").innerHTML =
         boats.filter(
             boat => boat.status === "Reached Harbour"
