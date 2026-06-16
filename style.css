@@ -634,3 +634,98 @@ footer p{
 
     font-weight:bold;
 }
+/* ===========================
+   PROFESSIONAL BOAT REGISTRY
+=========================== */
+
+.registry-stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.registry-stats div{
+    background:#003b7a;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* TABLE */
+
+#boatRegistry table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+#boatRegistry th{
+    background:#003b7a;
+    color:white;
+    padding:15px;
+    font-size:17px;
+    text-align:center;
+}
+
+#boatRegistry td{
+    padding:14px;
+    text-align:center;
+    background:rgba(255,255,255,0.75);
+}
+
+#boatRegistry tr:hover{
+    background:#eaf6ff;
+    transition:0.3s;
+}
+
+/* STATUS BADGES */
+
+.status-green{
+    background:#00a651;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-orange{
+    background:#ff9800;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.status-red{
+    background:#dc3545;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* VIEW BUTTON */
+
+.viewer-btn{
+    background:#003b7a;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.viewer-btn:hover{
+    background:#0055aa;
+}
+
+/* REGISTERED BOATS TITLE */
+
+#boatRegistrySection h2{
+    font-size:36px;
+    color:#003b7a;
+}
