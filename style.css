@@ -131,13 +131,15 @@ header h4{
     display:grid;
 
     grid-template-columns:
-    repeat(3,220px);
+    repeat(3,250px);
 
     justify-content:center;
 
     gap:25px;
 
     margin:40px auto;
+
+    width:max-content;
 }
 .card{
     width:220px;
@@ -506,4 +508,48 @@ footer p{
 #sosTable tr:nth-child(even){
 
     background:#f8f8f8;
+}
+#sosBanner{
+
+    background:#dc3545;
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    animation:blink 1s infinite;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0.5;
+    }
+}
+/* DASHBOARD LAYOUT FIX */
+
+.card:nth-child(4){
+
+    grid-column:1;
+
+    justify-self:end;
+}
+
+.card:nth-child(5){
+
+    grid-column:3;
+
+    justify-self:start;
 }
