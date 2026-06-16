@@ -686,8 +686,8 @@ async function loadFirebaseBoats() {
 
 async function loadWeather() {
 
-const apiKey =
-"bd624515b95decbaaa93805687a56374";
+    const apiKey =
+    "YOUR_API_KEY_HERE";
 
     const city =
     "Visakhapatnam";
@@ -700,27 +700,104 @@ const apiKey =
         );
 
         const data =
-await response.json();
+        await response.json();
 
-console.log(data);
+        console.log(data);
 
-if(data.cod != 200){
+        if(data.cod != 200){
 
-document.getElementById(
-"weatherPanel"
-).innerHTML = `
+            document.getElementById(
+            "weatherPanel"
+            ).innerHTML = `
 
-<div class="weather-card">
+            <div class="weather-card">
 
-<h3 style="color:red;">
-Weather API Error
-</h3>
+                <h3 style="color:red;">
+                Weather API Error
+                </h3>
 
-<p>${data.message}</p>
+                <p>${data.message}</p>
 
-</div>
+            </div>
 
-`;
+            `;
 
-return;
+            return;
+        }
+
+        let status = "🟢 SAFE";
+        let cssClass = "safe";
+
+        if(data.wind.speed > 10){
+
+            status = "🟡 CAUTION";
+            cssClass = "caution";
+
+        }
+
+        if(data.wind.speed > 20){
+
+            status = "🔴 DANGER";
+            cssClass = "danger";
+
+        }
+
+        document.getElementById(
+        "weatherPanel"
+        ).innerHTML = `
+
+        <div class="weather-card">
+
+            <h3>
+            🌡 Temperature :
+            ${data.main.temp} °C
+            </h3>
+
+            <h3>
+            💨 Wind Speed :
+            ${data.wind.speed} m/s
+            </h3>
+
+            <h3>
+            ☁ Condition :
+            ${data.weather[0].main}
+            </h3>
+
+            <h3 class="${cssClass}">
+            ${status}
+            </h3>
+
+        </div>
+
+        `;
+
+    }
+
+    catch(error){
+
+        console.error(
+        "Weather Error",
+        error
+        );
+
+        document.getElementById(
+        "weatherPanel"
+        ).innerHTML = `
+
+        <div class="weather-card">
+
+            <h3 style="color:red;">
+            Weather Service Unavailable
+            </h3>
+
+            <p>
+            Check API Key
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
 }
