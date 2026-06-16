@@ -685,6 +685,7 @@ async function loadFirebaseBoats() {
 // ==========================
 
 async function loadWeather(){
+console.log("WEATHER FUNCTION RUNNING");
 
 document.getElementById("weatherPanel").innerHTML = `
 
