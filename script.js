@@ -633,13 +633,74 @@ async function loadFirebaseBoats() {
 
         loadBoatRegistry();
         updateDashboard();
-        loadReports();
 
+loadSOSHistory();
+
+loadReports();
     } catch(error) {
 
         console.error(error);
 
     }
+}
+// ==========================
+// SOS ALERT HISTORY
+// ==========================
+
+function loadSOSHistory(){
+
+    const sosBoats =
+    boats.filter(
+        boat => boat.status === "EMERGENCY SOS"
+    );
+
+    if(sosBoats.length === 0){
+
+        document.getElementById(
+        "sosTable"
+        ).innerHTML =
+        "<h3 style='color:green;'>✅ No Active SOS Alerts</h3>";
+
+        return;
+    }
+
+    let html = `
+
+    <table>
+
+        <tr>
+            <th>Boat Number</th>
+            <th>Boat Name</th>
+            <th>Owner</th>
+            <th>Status</th>
+        </tr>
+
+    `;
+
+    sosBoats.forEach(boat => {
+
+        html += `
+
+        <tr>
+            <td>${boat.boatNumber}</td>
+            <td>${boat.boatName}</td>
+            <td>${boat.owner}</td>
+
+            <td style="color:red;font-weight:bold;">
+                🚨 EMERGENCY SOS
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+    html += `</table>`;
+
+    document.getElementById(
+    "sosTable"
+    ).innerHTML = html;
 }
 // ==========================
 // WEATHER PANEL

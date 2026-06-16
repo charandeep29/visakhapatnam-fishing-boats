@@ -478,3 +478,32 @@ footer p{
         #00d46a
     );
 }
+#sosTable table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+}
+
+#sosTable th{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:12px;
+}
+
+#sosTable td{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+}
+
+#sosTable tr:nth-child(even){
+
+    background:#f8f8f8;
+}
