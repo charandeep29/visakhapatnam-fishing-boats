@@ -553,48 +553,6 @@ footer p{
         opacity:0.5;
     }
 }
-/* SEA SAFETY CARD */
-
-.sea-safety-card{
-
-    width:450px;
-
-    margin:20px auto;
-
-    background:rgba(255,255,255,0.95);
-
-    border-radius:20px;
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.25);
-}
-
-.sea-safety-card h2{
-
-    color:#003366;
-
-    margin-bottom:15px;
-}
-
-.sea-safety-card p{
-
-    font-size:18px;
-
-    margin:10px 0;
-}
-
-.safe-status{
-
-    color:green;
-
-    font-size:24px;
-
-    margin-bottom:15px;
-}
-
 /* EMERGENCY PANEL */
 
 .emergency-panel{
