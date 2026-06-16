@@ -684,120 +684,24 @@ async function loadFirebaseBoats() {
 // WEATHER PANEL
 // ==========================
 
-async function loadWeather() {
+async function loadWeather(){
 
-    const apiKey =
-    "YOUR_API_KEY_HERE";
+document.getElementById("weatherPanel").innerHTML = `
 
-    const city =
-    "Visakhapatnam";
+<div class="weather-card">
 
-    try {
+<h3>🌡 Temperature : 31°C</h3>
 
-        const response =
-        await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-        );
+<h3>💨 Wind Speed : 8 m/s</h3>
 
-        const data =
-        await response.json();
+<h3>☁ Condition : Clear Sky</h3>
 
-        console.log(data);
+<h3 style="color:green;">
+🟢 SAFE
+</h3>
 
-        if(data.cod != 200){
+</div>
 
-            document.getElementById(
-            "weatherPanel"
-            ).innerHTML = `
-
-            <div class="weather-card">
-
-                <h3 style="color:red;">
-                Weather API Error
-                </h3>
-
-                <p>${data.message}</p>
-
-            </div>
-
-            `;
-
-            return;
-        }
-
-        let status = "🟢 SAFE";
-        let cssClass = "safe";
-
-        if(data.wind.speed > 10){
-
-            status = "🟡 CAUTION";
-            cssClass = "caution";
-
-        }
-
-        if(data.wind.speed > 20){
-
-            status = "🔴 DANGER";
-            cssClass = "danger";
-
-        }
-
-        document.getElementById(
-        "weatherPanel"
-        ).innerHTML = `
-
-        <div class="weather-card">
-
-            <h3>
-            🌡 Temperature :
-            ${data.main.temp} °C
-            </h3>
-
-            <h3>
-            💨 Wind Speed :
-            ${data.wind.speed} m/s
-            </h3>
-
-            <h3>
-            ☁ Condition :
-            ${data.weather[0].main}
-            </h3>
-
-            <h3 class="${cssClass}">
-            ${status}
-            </h3>
-
-        </div>
-
-        `;
-
-    }
-
-    catch(error){
-
-        console.error(
-        "Weather Error",
-        error
-        );
-
-        document.getElementById(
-        "weatherPanel"
-        ).innerHTML = `
-
-        <div class="weather-card">
-
-            <h3 style="color:red;">
-            Weather Service Unavailable
-            </h3>
-
-            <p>
-            Check API Key
-            </p>
-
-        </div>
-
-        `;
-
-    }
+`;
 
 }
