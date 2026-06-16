@@ -133,70 +133,54 @@ header h4{
     flex-wrap:wrap;
     gap:30px;
     margin:40px auto;
+    width:95%;
 }
+
 .card{
-    width:220px;
-    min-height:220px;
-
-    padding:25px;
-
-    border-radius:20px;
-
+    width:260px;
+    min-height:250px;
+    padding:30px;
+    border-radius:25px;
     text-align:center;
-
     color:white;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
     transition:0.3s;
 }
-/* FIRST ROW */
 
-.card:nth-child(1){
-    grid-column:2;
-}
-
-.card:nth-child(2){
-    grid-column:3;
-}
-
-.card:nth-child(3){
-    grid-column:4;
-}
-
-/* SECOND ROW */
-
-.card:nth-child(4){
-    grid-column:3;
-}
-
-.card:nth-child(5){
-    grid-column:4;
-}
 .card:hover{
     transform:translateY(-8px);
 }
-.card:nth-child(1){
-    background:linear-gradient(135deg,#0077ff,#00bfff);
+.total-card{
+    background:linear-gradient(
+        135deg,
+        #0077ff,
+        #00bfff
+    );
 }
 
-.card:nth-child(2){
-    background:linear-gradient(135deg,#e53935,#ff6b6b);
+.sos-card{
+    background:linear-gradient(
+        135deg,
+        #dc3545,
+        #ff6b6b
+    ) !important;
 }
 
-.card:nth-child(3){
-    background:linear-gradient(135deg,#ff9800,#ffb74d);
+.sea-card{
+    background:linear-gradient(
+        135deg,
+        #ff9800,
+        #ffb74d
+    );
 }
 
-.card:nth-child(4){
-    background:linear-gradient(135deg,#00a651,#00d46a);
+.harbour-card{
+    background:linear-gradient(
+        135deg,
+        #00a651,
+        #00d46a
+    );
 }
-
-.card p{
-    font-size:40px;
-    margin-top:10px;
-}
-
 /* SEARCH SECTION */
 
 .search-box{
@@ -347,13 +331,14 @@ footer p{
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-    .header-container{
+    .dashboard{
         flex-direction:column;
+        align-items:center;
     }
 
+}
     .dashboard{
     grid-template-columns:1fr;
 }
@@ -489,13 +474,6 @@ footer p{
 }
 /* REACHED HARBOUR CARD */
 
-.card:nth-child(5){
-    background:linear-gradient(
-        135deg,
-        #00a651,
-        #00d46a
-    );
-}
 #sosTable table{
 
     width:100%;
