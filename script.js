@@ -247,51 +247,12 @@ function updateDashboard(){
         boats.filter(
             boat => boat.status === "Reached Harbour"
         ).length;
-}
 
-// ==========================
-// REPORTS
-// ==========================
-
-function loadReports(){
-
-    const report =
-        document.getElementById("reportSection");
-
-    if(!report){
-        return;
-    }
-    const total = boats.length;
-
-    const atSea =
+    document.getElementById("sosCount").innerHTML =
         boats.filter(
-            boat => boat.status === "At Sea"
+            boat => boat.status === "EMERGENCY SOS"
         ).length;
-
-    const arriving =
-        boats.filter(
-            boat => boat.status === "Arriving Harbour"
-        ).length;
-
-    const reached =
-        boats.filter(
-            boat => boat.status === "Reached Harbour"
-        ).length;
-
-    report.innerHTML = `
-
-<h3>Total Registered Boats : ${total}</h3>
-
-<h3>🌊 At Sea : ${atSea}</h3>
-
-<h3>🟠 Arriving Harbour : ${arriving}</h3>
-
-<h3>⚓ Reached Harbour : ${reached}</h3>
-
-`;
-}
-
-// ==========================
+}// ==========================
 // DELETE BOAT
 // ==========================
 
