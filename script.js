@@ -104,29 +104,28 @@ function selectBoat(boatNumber){
 
     if(!boat) return;
 
-    document.getElementById(
-        "boatModalBody"
-    ).innerHTML = `
+    document.getElementById("boatModalBody").innerHTML = `
 
-        <div class="boat-detail">
-            <b>Boat Number :</b> ${boat.boatNumber}
-        </div>
+<p><b>Boat Number :</b> ${boat.boatNumber}</p>
 
-        <div class="boat-detail">
-            <b>Boat Name :</b> ${boat.boatName}
-        </div>
+<p><b>Boat Name :</b> ${boat.boatName}</p>
 
-        <div class="boat-detail">
-            <b>Owner :</b> ${boat.owner}
-        </div>
+<p><b>Owner :</b> ${boat.owner}</p>
 
-        <div class="boat-detail">
-            <b>Mobile :</b> ${boat.mobile}
-        </div>
+<p><b>Mobile :</b> ${boat.mobile}</p>
 
-        <div class="boat-detail">
-            <b>Status :</b> ${boat.status}
-        </div>
+<p><b>Status :</b> ${boat.status}</p>
+
+<a
+class="map-link"
+target="_blank"
+href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}">
+
+📍 Open GPS Location
+
+</a>
+
+`;
 
         <br>
 
@@ -543,31 +542,6 @@ function loadBoatRegistry(){
 
     if(!registry) return;
 
-    let html = `
-
-    <div class="registry-overview">
-
-        <div class="overview-card">
-            🚢 Total Boats : ${boats.length}
-        </div>
-
-        <div class="overview-card">
-            🌊 At Sea : ${
-                boats.filter(
-                boat => boat.status === "At Sea"
-                ).length
-            }
-        </div>
-
-        <div class="overview-card">
-            ⚓ Harbour : ${
-                boats.filter(
-                boat => boat.status === "Reached Harbour"
-                ).length
-            }
-        </div>
-
-    </div>
 
     <table class="registry-table">
 
@@ -653,7 +627,6 @@ function loadBoatRegistry(){
     registry.innerHTML = html;
 }
 window.loadBoatRegistry = loadBoatRegistry;
-window.loadReports = loadReports;
 window.updateClock = updateClock;
 window.selectBoat = selectBoat;
 window.closeBoatModal = closeBoatModal;
@@ -680,6 +653,7 @@ async function loadFirebaseBoats() {
             });
 
         });
+console.log("Total Boats =", boats.length);
 
         console.log("Boats Loaded:", boats);
 
@@ -885,7 +859,7 @@ Strong Winds Detected
 Return to Visakhapatnam Harbour Immediately
 or move to the nearest Safe Zone`;
 
-updateWeatherAlert(5);
+
     }
 }
 function filterRegistry() {
@@ -895,40 +869,21 @@ function filterRegistry() {
     .value.toLowerCase();
 
     let rows =
-    document.querySelectorAll("#boatRegistry table tbody tr");
+    document.querySelectorAll(
+    "#boatRegistry table tr"
+    );
 
-    rows.forEach(row => {
+    rows.forEach((row,index) => {
 
-        let text = row.innerText.toLowerCase();
-
-        if(text.includes(input)){
-            row.style.display = "";
-        }
-        else{
-            row.style.display = "none";
-        }
-
-    });
-}
-function filterRegistry() {
-
-    let input =
-    document.getElementById("registrySearch")
-    .value.toLowerCase();
-
-    let rows =
-    document.querySelectorAll("#boatRegistry table tbody tr");
-
-    rows.forEach(row => {
+        if(index === 0) return;
 
         let text =
         row.innerText.toLowerCase();
 
-        if(text.includes(input)){
-            row.style.display = "";
-        }else{
-            row.style.display = "none";
-        }
+        row.style.display =
+        text.includes(input)
+        ? ""
+        : "none";
 
     });
 }
