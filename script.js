@@ -720,6 +720,30 @@ await fetch(
 
 const data =
 await response.json();
+const weatherBanner =
+document.getElementById("weatherBanner");
+
+if(data.wind.speed >= 20){
+
+    weatherBanner.style.display = "block";
+
+    weatherBanner.innerHTML =
+    "🚨 WEATHER ALERT - Strong Winds Detected. Return To Harbour Immediately";
+
+}
+else if(data.wind.speed >= 10){
+
+    weatherBanner.style.display = "block";
+
+    weatherBanner.innerHTML =
+    "🟠 WEATHER WARNING - Proceed With Caution";
+
+}
+else{
+
+    weatherBanner.style.display = "none";
+
+}
 
 if(data.cod != 200){
 
@@ -727,19 +751,19 @@ throw new Error(data.message);
 
 }
 
-let status = "🟢 SAFE";
+let status = "🟢 SAFE FOR FISHING";
 let color = "green";
 
-if(data.wind.speed > 10){
+if(data.wind.speed >= 10){
 
-status = "🟡 CAUTION";
+status = "🟠 WEATHER WARNING";
 color = "orange";
 
 }
 
-if(data.wind.speed > 20){
+if(data.wind.speed >= 20){
 
-status = "🔴 DANGER";
+status = "🚨 RETURN TO HARBOUR IMMEDIATELY";
 color = "red";
 
 }

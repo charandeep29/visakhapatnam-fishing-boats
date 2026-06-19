@@ -900,3 +900,22 @@ footer p{
     border-radius:15px;
     cursor:pointer;
 }
+#weatherBanner{
+
+    background:red;
+    color:white;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    padding:12px;
+
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0.5;
+    }
+
+}
