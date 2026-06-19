@@ -358,11 +358,26 @@ footer p{
 
     input{
         width:90%;
+        margin-bottom:10px;
     }
-}
-    .search-box{
+
+    button{
+        width:90%;
+        margin:5px 0;
+    }
+
+    .boat-details-container{
+        flex-direction:column;
+    }
+
+    .boat-image{
+        width:100%;
+    }
+
+    #result{
         width:95%;
     }
+}
 
     input{
         width:90%;

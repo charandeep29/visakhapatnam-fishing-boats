@@ -116,19 +116,6 @@ function selectBoat(boatNumber){
 
 <p><b>Status :</b> ${boat.status}</p>
 
-<a
-class="map-link"
-target="_blank"
-href="https://www.google.com/maps?q=${boat.latitude},${boat.longitude}">
-
-📍 Open GPS Location
-
-</a>
-
-`;
-
-        <br>
-
         <a
         class="map-link"
         target="_blank"
@@ -542,6 +529,7 @@ function loadBoatRegistry(){
 
     if(!registry) return;
 
+    let html = `
 
     <table class="registry-table">
 
@@ -555,9 +543,7 @@ function loadBoatRegistry(){
 
         </tr>
 
-    `;
-
-    boats.forEach(boat => {
+    `; {
 
         let statusBadge = "";
 
@@ -887,3 +873,4 @@ function filterRegistry() {
 
     });
 }
+updateWeatherAlert(5);
