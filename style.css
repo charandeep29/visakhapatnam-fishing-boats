@@ -817,3 +817,32 @@ footer p{
 
     border-radius:10px;
 }
+.weather-alert{
+
+    padding:20px;
+
+    border-radius:15px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    margin-top:20px;
+}
+
+.safe{
+    background:#d4edda;
+    color:#155724;
+}
+
+.warning{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.danger{
+    background:#f8d7da;
+    color:#721c24;
+}

@@ -847,3 +847,38 @@ Weather Service Unavailable
 
 }
 }
+function updateWeatherAlert(windSpeed){
+
+    const alertBox =
+    document.getElementById("weatherAlert");
+
+    if(windSpeed < 10){
+
+        alertBox.className =
+        "weather-alert safe";
+
+        alertBox.innerHTML =
+        "🟢 SAFE FOR FISHING";
+
+    }
+
+    else if(windSpeed < 20){
+
+        alertBox.className =
+        "weather-alert warning";
+
+        alertBox.innerHTML =
+        "🟠 WEATHER WARNING<br>Strong Winds Expected";
+
+    }
+
+    else{
+
+        alertBox.className =
+        "weather-alert danger";
+
+        alertBox.innerHTML =
+        "🚨 RETURN TO HARBOUR IMMEDIATELY";
+
+    }
+}
