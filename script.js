@@ -878,7 +878,14 @@ function updateWeatherAlert(windSpeed){
         "weather-alert danger";
 
         alertBox.innerHTML =
-        "🚨 RETURN TO HARBOUR IMMEDIATELY";
+        `🚨 WEATHER ALERT
 
+Strong Winds Detected
+
+Return to Visakhapatnam Harbour Immediately
+or move to the nearest Safe Zone`;
+
+updateWeatherAlert(5);
     }
 }
+
