@@ -888,4 +888,25 @@ or move to the nearest Safe Zone`;
 updateWeatherAlert(5);
     }
 }
+function filterRegistry() {
 
+    let input =
+    document.getElementById("registrySearch")
+    .value.toLowerCase();
+
+    let rows =
+    document.querySelectorAll("#boatRegistry table tbody tr");
+
+    rows.forEach(row => {
+
+        let text = row.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            row.style.display = "";
+        }
+        else{
+            row.style.display = "none";
+        }
+
+    });
+}
