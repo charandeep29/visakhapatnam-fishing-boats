@@ -614,12 +614,11 @@ footer p{
 /* SEARCH BOX */
 
 #registrySearch{
-    width:380px;
-    max-width:90%;
-    padding:14px 18px;
-    border:2px solid #003b7a;
-    border-radius:12px;
+    width:350px;
+    padding:12px;
     font-size:18px;
+    border:2px solid #0b4a8b;
+    border-radius:15px;
 }
 
 /* OVERVIEW */
@@ -866,7 +865,6 @@ footer p{
     justify-content:center;
     align-items:center;
     gap:10px;
-    margin-bottom:20px;
 }
 .search-container input{
     width:450px;
@@ -918,4 +916,15 @@ footer p{
         opacity:0.5;
     }
 
+}
+.search-container button{
+    width:120px;
+    height:50px;
+    background:#0b4a8b;
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
 }
