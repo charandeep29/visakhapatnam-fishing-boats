@@ -144,17 +144,22 @@
     accept=".csv"
     onchange="importCSV(event)"
     style="display:none;">
-<input
-    type="text"
-    id="registrySearch"
-    placeholder="🔍 Search Boat Number / Boat Name / Owner"
-<button onclick="filterRegistry()">
-    🔍 Search
-</button>
-    onkeyup="filterRegistry()"><br><br>
-<div id="boatRegistry"></div>
-</section>
 
+<div class="search-container">
+
+    <input
+        type="text"
+        id="registrySearch"
+        placeholder="🔍 Search Boat Number / Boat Name / Owner"
+        onkeyup="filterRegistry()">
+
+    <button onclick="filterRegistry()">
+        🔍 Search
+    </button>
+
+</div>
+
+<br><br>
     <!-- GPS INFO -->
 <!-- WEATHER PANEL -->
 
@@ -172,8 +177,11 @@
 
     </div>
 
-</div>
-</section>
+    <p id="weatherMessage">
+        Current sea conditions are safe for fishing operations.
+    </p>
+
+</div></section>
 
 <!-- SOS ALERT HISTORY -->
 
