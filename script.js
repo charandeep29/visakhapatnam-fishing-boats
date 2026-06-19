@@ -534,16 +534,16 @@ function loadBoatRegistry(){
     <table class="registry-table">
 
         <tr>
-
             <th>Boat Number</th>
             <th>Boat Name</th>
             <th>Owner</th>
             <th>Status</th>
             <th>Action</th>
-
         </tr>
 
-    `; {
+    `;
+
+    boats.forEach(boat => {
 
         let statusBadge = "";
 
@@ -560,14 +560,6 @@ function loadBoatRegistry(){
             statusBadge =
             `<span class="status-orange">
             🌊 At Sea
-            </span>`;
-
-        }
-        else if(boat.status === "Arriving Harbour"){
-
-            statusBadge =
-            `<span class="status-orange">
-            🧭 Arriving Harbour
             </span>`;
 
         }
@@ -592,27 +584,23 @@ function loadBoatRegistry(){
             <td>${statusBadge}</td>
 
             <td>
-
                 <button
                 class="view-btn"
                 onclick="selectBoat('${boat.boatNumber}')">
-
                 👁 View
-
                 </button>
-
             </td>
 
         </tr>
 
         `;
+
     });
 
     html += `</table>`;
 
     registry.innerHTML = html;
-}
-window.loadBoatRegistry = loadBoatRegistry;
+}window.loadBoatRegistry = loadBoatRegistry;
 window.updateClock = updateClock;
 window.selectBoat = selectBoat;
 window.closeBoatModal = closeBoatModal;
