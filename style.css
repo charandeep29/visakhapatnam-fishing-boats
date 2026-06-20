@@ -871,13 +871,15 @@ footer p{
 }
 
 .search-container button{
-    padding:14px 25px;
-    background:#003b7a;
+    width:120px;
+    height:50px;
+    background:#0b4a8b;
     color:white;
     border:none;
-    border-radius:10px;
-    cursor:pointer;
+    border-radius:15px;
+    font-size:18px;
     font-weight:bold;
+    cursor:pointer;
 }
 #registrySearch{
     width:450px;
