@@ -751,23 +751,31 @@ throw new Error(data.message);
 
 }
 
-let status = "🟢 SAFE FOR FISHING";
-let color = "green";
+let status = "";
+let color = "";
+let message = "";
 
-if(data.wind.speed >= 10){
+if(data.wind.speed < 10){
 
-status = "🟠 WEATHER WARNING";
-color = "orange";
-
-}
-
-if(data.wind.speed >= 20){
-
-status = "🚨 RETURN TO HARBOUR IMMEDIATELY";
-color = "red";
+    status = "🟢 SAFE FOR FISHING";
+    color = "green";
+    message = "Current sea conditions are safe.";
 
 }
+else if(data.wind.speed < 20){
 
+    status = "🟠 WEATHER WARNING";
+    color = "orange";
+    message = "Strong winds expected. Proceed with caution.";
+
+}
+else{
+
+    status = "🚨 RETURN TO HARBOUR IMMEDIATELY";
+    color = "red";
+    message = "Dangerous sea conditions detected.";
+
+}
 document.getElementById(
 "weatherPanel"
 ).innerHTML = `
@@ -792,6 +800,10 @@ ${data.weather[0].main}
 <h3 style="color:${color};">
 ${status}
 </h3>
+
+<p style="font-size:18px;">
+${message}
+</p>
 
 </div>
 
