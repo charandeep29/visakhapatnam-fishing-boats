@@ -152,6 +152,11 @@ function updateDashboard(){
         boats.filter(
             boat => boat.status === "EMERGENCY SOS"
         ).length;
+if(sosBoats.length > 0){
+
+    showSOSPopup(sosBoats[0]);
+
+}
 document.getElementById("boatsDeparted").innerHTML =
 boats.filter(
 boat => boat.status === "At Sea"
@@ -898,3 +903,28 @@ function filterRegistry() {
     });
 }
 updateWeatherAlert(5);
+function showSOSPopup(boat){
+
+    document.getElementById(
+        "sosMessage"
+    ).innerHTML =
+
+    `
+    Boat Number : ${boat.boatNumber}<br><br>
+
+    Owner : ${boat.owner}<br><br>
+
+    Status : 🚨 EMERGENCY SOS
+    `;
+
+    document.getElementById(
+        "sosPopup"
+    ).style.display = "block";
+}
+
+function closeSOSPopup(){
+
+    document.getElementById(
+        "sosPopup"
+    ).style.display = "none";
+}
