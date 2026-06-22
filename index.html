@@ -202,13 +202,29 @@
     </h2>
 
     <div class="harbour-report-card">
+
+    <h3>📊 Today's Vessel Activity</h3>
+
+    <p>🚢 Boats Departed : <span id="boatsDeparted">0</span></p>
+
+    <p>⚓ Boats Arrived : <span id="boatsArrived">5</span></p>
+
+    <p>🚨 Active SOS : <span id="activeSOS">0</span></p>
+
+    <p>
+        🌊 Safe Navigation Status :
+        <span class="safe-text">
+            SAFE
+        </span>
+    </p>
+
+</div>
+
 <br>
 
 <button onclick="downloadReport()">
     📄 Download Daily Report
 </button>
-
-        <h3>📊 Today's Vessel Activity</h3>
 
         <p>🚢 Boats Departed : <span id="boatsDeparted">0</span></p>
 
@@ -313,25 +329,6 @@
         <h2>⚓ Boat Details</h2>
 
         <div id="boatModalBody"></div>
-
-    </div>
-
-</div>
-<!-- SOS ALERT POPUP -->
-
-<div id="sosPopup" class="modal">
-
-    <div class="modal-content">
-
-        <h2 style="color:red;">
-            🚨 SOS ALERT
-        </h2>
-
-        <p id="sosMessage"></p>
-
-        <button onclick="closeSOSPopup()">
-            Close
-        </button>
 
     </div>
 
