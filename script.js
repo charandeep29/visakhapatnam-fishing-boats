@@ -658,6 +658,11 @@ function loadSOSHistory(){
     );
 if(sosBoats.length > 0){
 
+    showSOSPopup(sosBoats[0]);
+
+}
+if(sosBoats.length > 0){
+
     showSOSPopup(
         sosBoats[0]
     );
@@ -961,3 +966,34 @@ function closeSOSPopup(){
         "sosPopup"
     ).style.display = "none";
 }
+function showSOSPopup(boat){
+
+    document.getElementById("sosMessage").innerHTML = `
+
+        <b>Boat Number:</b> ${boat.boatNumber}<br><br>
+
+        <b>Boat Name:</b> ${boat.boatName}<br><br>
+
+        <b>Owner:</b> ${boat.owner}<br><br>
+
+        <b>Status:</b> 🚨 EMERGENCY SOS
+
+    `;
+
+    document.getElementById("sosPopup").style.display = "block";
+}
+
+function closeSOSPopup(){
+
+    document.getElementById("sosPopup").style.display = "none";
+
+}
+showSOSPopup({
+
+    boatNumber:"INDAPV001",
+
+    boatName:"Sri Lakshmi",
+
+    owner:"Ramesh"
+
+});

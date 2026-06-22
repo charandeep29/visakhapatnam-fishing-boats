@@ -930,3 +930,26 @@ footer p{
     font-weight:bold;
     cursor:pointer;
 }
+#sosPopup .modal-content{
+
+    border:3px solid red;
+
+    max-width:500px;
+
+    text-align:center;
+
+}
+
+#sosPopup h2{
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0.5;
+    }
+
+}
