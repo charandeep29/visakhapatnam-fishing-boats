@@ -988,3 +988,56 @@ function closeSOSPopup(){
     document.getElementById("sosPopup").style.display = "none";
 
 }
+function downloadReport(){
+
+    const report = `
+
+VISAKHAPATNAM MECHANIZED FISHING BOATS
+
+Date: ${new Date().toLocaleDateString()}
+
+Total Boats : ${boats.length}
+
+At Sea : ${
+boats.filter(
+boat => boat.status === "At Sea"
+).length
+}
+
+In Harbour : ${
+boats.filter(
+boat => boat.status === "Reached Harbour"
+).length
+}
+
+SOS Alerts : ${
+boats.filter(
+boat => boat.status === "EMERGENCY SOS"
+).length
+}
+
+Weather Status :
+SAFE FOR FISHING
+
+Department of Fisheries
+Andhra Pradesh
+
+`;
+
+    const blob =
+    new Blob(
+        [report],
+        {type:"text/plain"}
+    );
+
+    const link =
+    document.createElement("a");
+
+    link.href =
+    URL.createObjectURL(blob);
+
+    link.download =
+    "Harbour_Report.txt";
+
+    link.click();
+}
