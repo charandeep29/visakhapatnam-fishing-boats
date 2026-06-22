@@ -988,12 +988,3 @@ function closeSOSPopup(){
     document.getElementById("sosPopup").style.display = "none";
 
 }
-showSOSPopup({
-
-    boatNumber:"INDAPV001",
-
-    boatName:"Sri Lakshmi",
-
-    owner:"Ramesh"
-
-});
