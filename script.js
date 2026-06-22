@@ -300,6 +300,7 @@ document.getElementById("csvFile").style.display =
     "inline-block";
 document.getElementById("logoutBtn").style.display =
     "inline-block";
+document.getElementById("reportBtn").style.display = "inline-block";
 
 loadBoatRegistry();
 
