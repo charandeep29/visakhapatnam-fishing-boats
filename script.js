@@ -1055,12 +1055,27 @@ L.tileLayer(
 ).addTo(map);
 L.marker([17.6868,83.2185])
 .addTo(map)
-.bindPopup("🚢 INDAPV001");
+.bindPopup(`
+    <b>🚢 INDAPV001</b><br>
+    Owner : Ramesh<br>
+    Status : In Harbour<br>
+    Mobile : 9876543211
+`);
+L.marker([17.6868,83.2185])
+.addTo(map);
 
 L.marker([17.7100,83.2500])
-.addTo(map)
-.bindPopup("🚢 INDAPV002");
+.addTo(map);
 
 L.marker([17.6500,83.3000])
-.addTo(map)
-.bindPopup("🚢 INDAPV003");
+.addTo(map);
+L.circle(
+    [17.6868, 83.2185],
+    {
+        color: 'green',
+        fillColor: '#00ff00',
+        fillOpacity: 0.15,
+        radius: 3000
+    }
+).addTo(map)
+.bindPopup("⚓ Visakhapatnam Harbour Safety Zone");
