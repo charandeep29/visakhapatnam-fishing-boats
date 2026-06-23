@@ -1042,3 +1042,25 @@ Andhra Pradesh
 
     link.click();
 }
+const map = L.map('mapContainer').setView(
+    [17.6868, 83.2185],
+    12
+);
+
+L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution:'© OpenStreetMap'
+    }
+).addTo(map);
+L.marker([17.6868,83.2185])
+.addTo(map)
+.bindPopup("🚢 INDAPV001");
+
+L.marker([17.7100,83.2500])
+.addTo(map)
+.bindPopup("🚢 INDAPV002");
+
+L.marker([17.6500,83.3000])
+.addTo(map)
+.bindPopup("🚢 INDAPV003");
