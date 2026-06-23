@@ -1127,3 +1127,4 @@ L.marker([17.5750,83.4800],{icon:boatIcon})
 Owner : Sai<br>
 Status : At Sea
 `);
+}); 
