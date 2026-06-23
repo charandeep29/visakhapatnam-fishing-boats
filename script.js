@@ -1088,39 +1088,42 @@ const boatIcon = L.icon({
 
     // Boats
 
-L.marker(
-    [17.6550,83.3400],
-    {
-        icon: boatIcon
-    }
-).addTo(map).bindPopup(`
+L.marker([17.6550,83.3400],{icon:boatIcon})
+.addTo(map)
+.bindPopup(`
 <b>🚢 INDAPV001</b><br>
 Owner : Ramesh<br>
-Status : At Sea<br>
-Mobile : 9876543211
+Status : At Sea
 `);
-L.marker(
-    [17.6550,83.3400],
-    {
-        icon: boatIcon
-    }
-).addTo(map).bindPopup("🚢 INDAPV002");
-L.marker(
-    [17.6550,83.3400],
-    {
-        icon: boatIcon
-    }
-).addTo(map).bindPopup("🚢 INDAPV003");
-L.marker(
-    [17.6550,83.3400],
-    {
-        icon: boatIcon
-    }
-).addTo(map).bindPopup("🚢 INDAPV004");
-L.marker(
-    [17.6550,83.3400],
-    {
-        icon: boatIcon
-    }
-).addTo(map).bindPopup("🚢 INDAPV005");
-});
+
+L.marker([17.6350,83.3700],{icon:boatIcon})
+.addTo(map)
+.bindPopup(`
+<b>🚢 INDAPV002</b><br>
+Owner : Suresh<br>
+Status : At Sea
+`);
+
+L.marker([17.6150,83.4000],{icon:boatIcon})
+.addTo(map)
+.bindPopup(`
+<b>🚢 INDAPV003</b><br>
+Owner : Ravi<br>
+Status : At Sea
+`);
+
+L.marker([17.5950,83.4400],{icon:boatIcon})
+.addTo(map)
+.bindPopup(`
+<b>🚢 INDAPV004</b><br>
+Owner : Ganesh<br>
+Status : At Sea
+`);
+
+L.marker([17.5750,83.4800],{icon:boatIcon})
+.addTo(map)
+.bindPopup(`
+<b>🚢 INDAPV005</b><br>
+Owner : Sai<br>
+Status : At Sea
+`);
