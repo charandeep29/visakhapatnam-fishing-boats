@@ -1046,78 +1046,57 @@ Andhra Pradesh
 // LIVE HARBOUR MAP
 // ==========================
 
-const map = L.map('mapContainer').setView(
-    [17.6500, 83.3500],
-    11
-);
+window.addEventListener("load", function(){
 
-L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-        attribution:'© OpenStreetMap'
-    }
-).addTo(map);
+    const mapContainer =
+    document.getElementById("mapContainer");
 
-// Harbour Safety Zone
+    if(!mapContainer) return;
 
-L.circle(
-    [17.6868, 83.2185],
-    {
-        color:'green',
-        fillColor:'#00ff00',
-        fillOpacity:0.15,
-        radius:1500
-    }
-)
-.addTo(map)
-.bindPopup("⚓ Visakhapatnam Harbour Safety Zone");
+    const map = L.map("mapContainer")
+    .setView([17.6500,83.3500],11);
 
-// Boat 1
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution:"© OpenStreetMap"
+        }
+    ).addTo(map);
 
-L.marker([17.6200,83.3300])
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV001</b><br>
-Owner : Ramesh<br>
-Status : At Sea
-`);
+    // Harbour Zone
 
-// Boat 2
+    L.circle(
+        [17.6868,83.2185],
+        {
+            color:"green",
+            fillColor:"#00ff00",
+            fillOpacity:0.15,
+            radius:1500
+        }
+    )
+    .addTo(map)
+    .bindPopup("⚓ Visakhapatnam Harbour Safety Zone");
 
-L.marker([17.5900,83.3800])
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV002</b><br>
-Owner : Suresh<br>
-Status : At Sea
-`);
+    // Boats
 
-// Boat 3
+    L.marker([17.6200,83.3300])
+    .addTo(map)
+    .bindPopup("🚢 INDAPV001");
 
-L.marker([17.5600,83.4300])
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV003</b><br>
-Owner : Ganesh<br>
-Status : At Sea
-`);
+    L.marker([17.5900,83.3800])
+    .addTo(map)
+    .bindPopup("🚢 INDAPV002");
 
-// Boat 4
+    L.marker([17.5600,83.4300])
+    .addTo(map)
+    .bindPopup("🚢 INDAPV003");
 
-L.marker([17.5300,83.4700])
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV004</b><br>
-Owner : Ravi<br>
-Status : At Sea
-`);
+    L.marker([17.5300,83.4700])
+    .addTo(map)
+    .bindPopup("🚢 INDAPV004");
 
-// Boat 5
+    L.marker([17.5000,83.5200])
+    .addTo(map)
+    .bindPopup("🚢 INDAPV005");
 
-L.marker([17.5000,83.5200])
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV005</b><br>
-Owner : Krishna<br>
-Status : At Sea
-`);
+});
