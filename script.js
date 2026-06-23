@@ -1065,38 +1065,23 @@ window.addEventListener("load", function(){
 
     // Harbour Zone
 
-    L.circle(
-        [17.6868,83.2185],
-        {
-            color:"green",
-            fillColor:"#00ff00",
-            fillOpacity:0.15,
-            radius:1500
-        }
-    )
-    .addTo(map)
-    .bindPopup("⚓ Visakhapatnam Harbour Safety Zone");
+ L.circle(
+    [17.6805,83.2935],
+    {
+        color:'green',
+        fillColor:'#00ff00',
+        fillOpacity:0.20,
+        radius:1000
+    }
+)
+.addTo(map)
+.bindPopup("⚓ Visakhapatnam Fishing Harbour");
 
     // Boats
 
-    L.marker([17.6200,83.3300])
-    .addTo(map)
-    .bindPopup("🚢 INDAPV001");
-
-    L.marker([17.5900,83.3800])
-    .addTo(map)
-    .bindPopup("🚢 INDAPV002");
-
-    L.marker([17.5600,83.4300])
-    .addTo(map)
-    .bindPopup("🚢 INDAPV003");
-
-    L.marker([17.5300,83.4700])
-    .addTo(map)
-    .bindPopup("🚢 INDAPV004");
-
-    L.marker([17.5000,83.5200])
-    .addTo(map)
-    .bindPopup("🚢 INDAPV005");
-
+L.marker([17.6550,83.3400]).addTo(map).bindPopup("🚢 INDAPV001");
+L.marker([17.6350,83.3700]).addTo(map).bindPopup("🚢 INDAPV002");
+L.marker([17.6150,83.4000]).addTo(map).bindPopup("🚢 INDAPV003");
+L.marker([17.5950,83.4400]).addTo(map).bindPopup("🚢 INDAPV004");
+L.marker([17.5750,83.4800]).addTo(map).bindPopup("🚢 INDAPV005");
 });
