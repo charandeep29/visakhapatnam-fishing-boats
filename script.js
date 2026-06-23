@@ -325,6 +325,8 @@ function adminLogout(){
         "none";
 
     loadBoatRegistry();
+document.getElementById("reportBtn").style.display =
+    "none";
 
     openSuccessPopup(
     "👋 Logged Out",
@@ -916,59 +918,6 @@ function filterRegistry() {
 }
 function showSOSPopup(boat){
 
-    document.getElementById(
-        "sosMessage"
-    ).innerHTML =
-
-    `
-    <b>Boat Number:</b> ${boat.boatNumber}<br><br>
-
-    <b>Boat Name:</b> ${boat.boatName}<br><br>
-
-    <b>Owner:</b> ${boat.owner}<br><br>
-
-    <b>Status:</b> 🚨 EMERGENCY SOS
-    `;
-
-    document.getElementById(
-        "sosPopup"
-    ).style.display = "block";
-}
-
-function closeSOSPopup(){
-
-    document.getElementById(
-        "sosPopup"
-    ).style.display = "none";
-}
-updateWeatherAlert(5);
-function showSOSPopup(boat){
-
-    document.getElementById(
-        "sosMessage"
-    ).innerHTML =
-
-    `
-    Boat Number : ${boat.boatNumber}<br><br>
-
-    Owner : ${boat.owner}<br><br>
-
-    Status : 🚨 EMERGENCY SOS
-    `;
-
-    document.getElementById(
-        "sosPopup"
-    ).style.display = "block";
-}
-
-function closeSOSPopup(){
-
-    document.getElementById(
-        "sosPopup"
-    ).style.display = "none";
-}
-function showSOSPopup(boat){
-
     document.getElementById("sosMessage").innerHTML = `
 
         <b>Boat Number:</b> ${boat.boatNumber}<br><br>
@@ -1071,14 +1020,13 @@ window.addEventListener("load", function(){
         color:'green',
         fillColor:'#00ff00',
         fillOpacity:0.20,
-        radius:2500
+        radius:1500
     }
 )
 .addTo(map)
 .bindPopup("⚓ Visakhapatnam Fishing Harbour");
 const boatIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/3700/3700329.png",
-
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/3063/3063188.png",
     iconSize: [40,40],
 
     iconAnchor: [20,20],
