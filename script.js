@@ -1066,12 +1066,12 @@ window.addEventListener("load", function(){
     // Harbour Zone
 
  L.circle(
-    [17.6805,83.2935],
+    [17.6850,83.2850],
     {
         color:'green',
         fillColor:'#00ff00',
         fillOpacity:0.20,
-        radius:1000
+        radius:2500
     }
 )
 .addTo(map)
@@ -1079,7 +1079,12 @@ window.addEventListener("load", function(){
 
     // Boats
 
-L.marker([17.6550,83.3400]).addTo(map).bindPopup("🚢 INDAPV001");
+L.marker([17.6550,83.3400]).addTo(map).bindPopup(`
+<b>🚢 INDAPV001</b><br>
+Owner : Ramesh<br>
+Status : At Sea<br>
+Mobile : 9876543211
+`);
 L.marker([17.6350,83.3700]).addTo(map).bindPopup("🚢 INDAPV002");
 L.marker([17.6150,83.4000]).addTo(map).bindPopup("🚢 INDAPV003");
 L.marker([17.5950,83.4400]).addTo(map).bindPopup("🚢 INDAPV004");
