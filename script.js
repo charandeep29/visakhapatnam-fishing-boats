@@ -1042,29 +1042,19 @@ Andhra Pradesh
 
     link.click();
 }
-const map = L.map('mapContainer').setView(
-    [17.6868, 83.2185],
-    12
-);
-
-L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-        attribution:'© OpenStreetMap'
-    }
-)// Create Map
+// ==========================
+// LIVE HARBOUR MAP
+// ==========================
 
 const map = L.map('mapContainer').setView(
     [17.6500, 83.3500],
     11
 );
 
-// OpenStreetMap Layer
-
 L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
-        attribution: '© OpenStreetMap'
+        attribution:'© OpenStreetMap'
     }
 ).addTo(map);
 
@@ -1073,53 +1063,61 @@ L.tileLayer(
 L.circle(
     [17.6868, 83.2185],
     {
-        color: 'green',
-        fillColor: '#00ff00',
-        fillOpacity: 0.15,
-        radius: 1500
+        color:'green',
+        fillColor:'#00ff00',
+        fillOpacity:0.15,
+        radius:1500
     }
 )
 .addTo(map)
 .bindPopup("⚓ Visakhapatnam Harbour Safety Zone");
 
-// Boats At Sea
+// Boat 1
 
 L.marker([17.6200,83.3300])
 .addTo(map)
 .bindPopup(`
-🚢 INDAPV001
-<br>Owner : Ramesh
-<br>Status : At Sea
+<b>🚢 INDAPV001</b><br>
+Owner : Ramesh<br>
+Status : At Sea
 `);
+
+// Boat 2
 
 L.marker([17.5900,83.3800])
 .addTo(map)
 .bindPopup(`
-🚢 INDAPV002
-<br>Owner : Suresh
-<br>Status : At Sea
+<b>🚢 INDAPV002</b><br>
+Owner : Suresh<br>
+Status : At Sea
 `);
+
+// Boat 3
 
 L.marker([17.5600,83.4300])
 .addTo(map)
 .bindPopup(`
-🚢 INDAPV003
-<br>Owner : Ganesh
-<br>Status : At Sea
+<b>🚢 INDAPV003</b><br>
+Owner : Ganesh<br>
+Status : At Sea
 `);
+
+// Boat 4
 
 L.marker([17.5300,83.4700])
 .addTo(map)
 .bindPopup(`
-🚢 INDAPV004
-<br>Owner : Ravi
-<br>Status : At Sea
+<b>🚢 INDAPV004</b><br>
+Owner : Ravi<br>
+Status : At Sea
 `);
+
+// Boat 5
 
 L.marker([17.5000,83.5200])
 .addTo(map)
 .bindPopup(`
-🚢 INDAPV005
-<br>Owner : Krishna
-<br>Status : At Sea
+<b>🚢 INDAPV005</b><br>
+Owner : Krishna<br>
+Status : At Sea
 `);
