@@ -152,32 +152,21 @@ function updateDashboard(){
         boats.filter(
             boat => boat.status === "EMERGENCY SOS"
         ).length;
-if(sosBoats.length > 0){
 
-    showSOSPopup(sosBoats[0]);
+    document.getElementById("boatsDeparted").innerHTML =
+        boats.filter(
+            boat => boat.status === "At Sea"
+        ).length;
 
-}
-document.getElementById("boatsDeparted").innerHTML =
-boats.filter(
-boat => boat.status === "At Sea"
-).length;
+    document.getElementById("boatsArrived").innerHTML =
+        boats.filter(
+            boat => boat.status === "Reached Harbour"
+        ).length;
 
-document.getElementById("boatsArrived").innerHTML =
-boats.filter(
-boat => boat.status === "Reached Harbour"
-).length;
-
-document.getElementById("activeSOS").innerHTML =
-boats.filter(
-boat => boat.status === "EMERGENCY SOS"
-).length;
-}
-function closeBoatModal(){
-
-    document.getElementById(
-    "boatModal"
-    ).style.display = "none";
-
+    document.getElementById("activeSOS").innerHTML =
+        boats.filter(
+            boat => boat.status === "EMERGENCY SOS"
+        ).length;
 }
 // ==========================
 // DELETE BOAT
@@ -659,11 +648,6 @@ function loadSOSHistory(){
     boats.filter(
         boat => boat.status === "EMERGENCY SOS"
     );
-if(sosBoats.length > 0){
-
-    showSOSPopup(sosBoats[0]);
-
-}
 if(sosBoats.length > 0){
 
     showSOSPopup(
