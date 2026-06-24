@@ -346,60 +346,27 @@ footer p{
 }
 
 /* MOBILE */
-@media(max-width:768px){
-
-    .dashboard{
-        grid-template-columns:1fr;
-    }
-
-    .search-box{
-        width:95%;
-    }
-
-    input{
-        width:90%;
-        margin-bottom:10px;
-    }
-
-    button{
-        width:90%;
-        margin:5px 0;
-    }
-
-    .boat-details-container{
-        flex-direction:column;
-    }
-
-    .boat-image{
-        width:100%;
-    }
-
-    #result{
-        width:95%;
-    }
+input{
+    width:90%;
+    margin-bottom:10px;
 }
 
-    input{
-        width:90%;
-        margin-bottom:10px;
-    }
+button{
+    width:90%;
+    margin:5px 0;
+}
 
-    button{
-        width:90%;
-        margin:5px 0;
-    }
+.boat-details-container{
+    flex-direction:column;
+}
 
-    .boat-details-container{
-        flex-direction:column;
-    }
+.boat-image{
+    width:100%;
+}
 
-    .boat-image{
-        width:100%;
-    }
-
-    #result{
-        width:95%;
-    }
+#result{
+    width:95%;
+}
 }
 .map-box{
     margin-top:20px;
