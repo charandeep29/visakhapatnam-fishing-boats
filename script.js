@@ -1,5 +1,4 @@
 let isAdmin = false;
-
 // ==========================
 // SEARCH BOAT
 // ==========================
@@ -383,15 +382,13 @@ window.onload = function(){
 
     if(typeof loadFirebaseBoats === "function"){
     loadFirebaseBoats();
-}
 
-setInterval(() => {
+    setInterval(() => {
 
-    if(typeof loadFirebaseBoats === "function"){
         loadFirebaseBoats();
-    }
 
-}, 5000);
+    }, 5000);
+}
 };
 function adminLogin(){
 
@@ -650,7 +647,7 @@ function updateClock(){
         " | " +
         now.toLocaleTimeString("en-IN");
 }
-window.updateDashboard = updateDashboard;
+
 function loadBoatRegistry(){
 
     const registry =
@@ -745,6 +742,8 @@ function loadBoatRegistry(){
 </tr>
 
 `;
+    });
+
     html += `</table>`;
 
     registry.innerHTML = html;
@@ -1181,106 +1180,93 @@ Andhra Pradesh
 // LIVE HARBOUR MAP
 // ==========================
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
 
-    const mapContainer =
-    document.getElementById("mapContainer");
+    const mapContainer = document.getElementById("mapContainer");
 
-    if(!mapContainer) return;
+    if (!mapContainer) return;
 
-if(typeof L === "undefined"){
-    console.error("Leaflet not loaded");
-    return;
-}
+    if (typeof L === "undefined") {
+        console.error("Leaflet not loaded");
+        return;
+    }
 
-const map = L.map("mapContainer")
-.setView([17.6500,83.3500],12);
+    const map = L.map("mapContainer").setView([17.6500, 83.3500], 12);
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-            attribution:"© OpenStreetMap"
+            attribution: "© OpenStreetMap"
         }
     ).addTo(map);
 
-    // Harbour Zone
+    // Harbour Safety Zone
+    L.circle(
+        [17.6950, 83.3050],
+        {
+            color: "green",
+            fillColor: "#00ff00",
+            fillOpacity: 0.20,
+            radius: 1500
+        }
+    )
+    .addTo(map)
+    .bindPopup("⚓ Visakhapatnam Fishing Harbour");
 
-L.circle(
-    [17.6950,83.3050],
-    {
-        color:'green',
-        fillColor:'#00ff00',
-        fillOpacity:0.20,
-        radius:1500
-    }
-)
-.addTo(map)
-.bindPopup(`
-<b>⚓ Visakhapatnam Fishing Harbour</b><br><br>
-
-🚢 Registered Boats : ${boats.length}<br>
-
-🌊 At Sea : ${
-boats.filter(
-boat => boat.status === "At Sea"
-).length
-}<br>
-
-⚓ In Harbour : ${
-boats.filter(
-boat => boat.status === "Reached Harbour"
-).length
-}<br>
-
-🚨 SOS Alerts : ${
-boats.filter(
-boat => boat.status === "EMERGENCY SOS"
-).length
-}
-`);
-
-    // Route Line
-
+    // Fishing Route
     L.polyline(
-    [
-        [17.6950,83.3050],
-        [17.6550,83.3400],
-        [17.6350,83.3700],
-        [17.6150,83.4000],
-        [17.5950,83.4400],
-        [17.5750,83.4800]
-    ],
-    {
-        color:"blue",
-        dashArray:"10,10"
-    }
+        [
+            [17.6950, 83.3050],
+            [17.6550, 83.3400],
+            [17.6350, 83.3700],
+            [17.6150, 83.4000],
+            [17.5950, 83.4400],
+            [17.5750, 83.4800]
+        ],
+        {
+            color: "blue",
+            dashArray: "10,10"
+        }
     ).addTo(map);
 
+    // Boat Icon
     const boatIcon = L.icon({
-        iconUrl:"https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
-        iconSize:[40,40],
-        iconAnchor:[20,20],
-        popupAnchor:[0,-15]
+        iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+        popupAnchor: [0, -15]
     });
 
-    L.marker([17.6550,83.3400],{icon:boatIcon})
-    .addTo(map)
-    .bindPopup("🚢 INDAPV001");
+    // Boats
+    L.marker([17.6550, 83.3400], { icon: boatIcon })
+        .addTo(map)
+        .bindPopup("🚢 INDAPV001");
 
-    L.marker([17.6350,83.3700],{icon:boatIcon})
-    .addTo(map)
-    .bindPopup("🚢 INDAPV002");
+    L.marker([17.6350, 83.3700], { icon: boatIcon })
+        .addTo(map)
+        .bindPopup("🚢 INDAPV002");
 
-    L.marker([17.6150,83.4000],{icon:boatIcon})
-    .addTo(map)
-    .bindPopup("🚢 INDAPV003");
+    L.marker([17.6150, 83.4000], { icon: boatIcon })
+        .addTo(map)
+        .bindPopup("🚢 INDAPV003");
 
-    L.marker([17.5950,83.4400],{icon:boatIcon})
-    .addTo(map)
-    .bindPopup("🚢 INDAPV004");
+    L.marker([17.5950, 83.4400], { icon: boatIcon })
+        .addTo(map)
+        .bindPopup("🚢 INDAPV004");
 
-    L.marker([17.5750,83.4800],{icon:boatIcon})
-    .addTo(map)
-    .bindPopup("🚢 INDAPV005");
+    L.marker([17.5750, 83.4800], { icon: boatIcon })
+        .addTo(map)
+        .bindPopup("🚢 INDAPV005");
 
 });
+
+// Global Functions
+window.updateDashboard = updateDashboard;
+window.loadBoatRegistry = loadBoatRegistry;
+window.selectBoat = selectBoat;
+window.editBoat = editBoat;
+window.deleteBoat = deleteBoat;
+window.sendSOS = sendSOS;
+window.closeBoatModal = closeBoatModal;
+window.downloadReport = downloadReport;
+window.updateClock = updateClock;
