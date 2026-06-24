@@ -219,7 +219,42 @@ async function addBoatPrompt(){
                 status: "Reached Harbour"
             }
         );
+async function deleteBoat(id){
 
+    const confirmDelete =
+    confirm(
+    "Are you sure you want to delete this boat?"
+    );
+
+    if(!confirmDelete) return;
+
+    try{
+
+        await window.deleteDoc(
+            window.doc(
+                window.db,
+                "boats",
+                id
+            )
+        );
+
+        await loadFirebaseBoats();
+
+        openSuccessPopup(
+            "🗑 Boat Deleted",
+            "Boat removed successfully"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert("Delete Failed");
+
+    }
+
+}
         await loadFirebaseBoats();
 
         openSuccessPopup(
@@ -539,7 +574,7 @@ function loadBoatRegistry(){
             <th>Boat Name</th>
             <th>Owner</th>
             <th>Status</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
 
     `;
@@ -585,12 +620,88 @@ function loadBoatRegistry(){
             <td>${statusBadge}</td>
 
             <td>
-                <button
-                class="view-btn"
-                onclick="selectBoat('${boat.boatNumber}')">
-                👁 View
-                </button>
-            </td>
+
+    <button
+    class="view-btn"
+    onclick="selectBoat('${boat.boatNumber}')">
+    👁 View
+    </button>
+
+    ${
+        isAdmin
+        ?
+        `
+        <button
+        onclick="editBoat('${boat.id}')">
+        ✏ Edit
+        </button>
+
+        <button
+        onclick="deleteBoat('${boat.id}')">
+        🗑 Delete
+        </button>
+        `
+        :
+        ""
+    }
+async function editBoat(id){
+
+    const boat =
+    boats.find(
+        b => b.id === id
+    );
+
+    if(!boat) return;
+
+    const newName =
+    prompt(
+        "Boat Name",
+        boat.boatName
+    );
+
+    const newOwner =
+    prompt(
+        "Owner Name",
+        boat.owner
+    );
+
+    if(
+        !newName ||
+        !newOwner
+    ) return;
+
+    try{
+
+        await window.updateDoc(
+            window.doc(
+                window.db,
+                "boats",
+                id
+            ),
+            {
+                boatName: newName,
+                owner: newOwner
+            }
+        );
+
+        await loadFirebaseBoats();
+
+        openSuccessPopup(
+            "✏ Boat Updated",
+            "Boat details updated successfully"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert("Update Failed");
+
+    }
+
+}
+</td>
 
         </tr>
 
@@ -604,6 +715,8 @@ function loadBoatRegistry(){
 }window.loadBoatRegistry = loadBoatRegistry;
 window.updateClock = updateClock;
 window.selectBoat = selectBoat;
+window.editBoat = editBoat;
+window.deleteBoat = deleteBoat;
 function closeBoatModal(){
     document.getElementById("boatModal").style.display = "none";
 }
