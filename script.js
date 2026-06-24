@@ -167,6 +167,9 @@ function updateDashboard(){
         boats.filter(
             boat => boat.status === "EMERGENCY SOS"
         ).length;
+if(document.getElementById("riskLevel")){
+    updateAIRisk();
+}
 }
 // ==========================
 // DELETE BOAT
@@ -754,6 +757,7 @@ window.selectBoat = selectBoat;
 
 window.editBoat = editBoat;
 window.deleteBoat = deleteBoat;
+window.sendSOS = sendSOS;
 
 function closeBoatModal(){
     document.getElementById("boatModal").style.display = "none";
@@ -986,6 +990,43 @@ Weather Service Unavailable
 `;
 
 }
+}
+function updateAIRisk(){
+
+    let sosCount =
+    boats.filter(
+        boat => boat.status === "EMERGENCY SOS"
+    ).length;
+
+    let atSeaCount =
+    boats.filter(
+        boat => boat.status === "At Sea"
+    ).length;
+
+    let risk = "LOW";
+    let message = "Safe For Fishing Operations";
+
+    if(sosCount >= 1){
+
+        risk = "HIGH";
+
+        message =
+        "Emergency Boat Detected. Rescue Team Required.";
+
+    }
+    else if(atSeaCount >= 3){
+
+        risk = "MEDIUM";
+
+        message =
+        "Large Number Of Boats At Sea. Monitor Conditions.";
+    }
+
+    document.getElementById("riskLevel").innerHTML =
+    "Risk Level : " + risk;
+
+    document.getElementById("riskMessage").innerHTML =
+    message;
 }
 function updateWeatherAlert(windSpeed){
 

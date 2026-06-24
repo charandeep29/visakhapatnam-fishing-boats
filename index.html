@@ -76,6 +76,12 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <i class="fas fa-cloud-sun"></i> Weather
 </a>
 
+<a href="#aiSection">
+    <i class="fas fa-robot"></i> AI Assistant
+</a>
+
+<a href="#about">
+
     <a href="#about"><i class="fas fa-info-circle"></i> About</a>
 
 <a href="#" onclick="openLogin()">
@@ -199,6 +205,25 @@ style="display:none;">
 <p id="weatherMessage"></p>
 
 </div></section>
+<section class="search-box" id="aiSection">
+
+    <h2>
+        🤖 AI Vessel Risk Prediction
+    </h2>
+
+    <div id="aiRiskCard">
+
+        <h3 id="riskLevel">
+            Risk Level : LOW
+        </h3>
+
+        <p id="riskMessage">
+            Safe For Fishing Operations
+        </p>
+
+    </div>
+
+</section>
 
 <!-- SOS ALERT HISTORY -->
 
@@ -371,9 +396,7 @@ style="display:none;">
 
 <script type="module" src="firebase.js"></script>
 <script src="boat.js"></script>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script src="script.js"></script>
 
 </body>

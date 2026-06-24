@@ -933,3 +933,29 @@ button{
     border:2px solid #003366;
 
 }
+#aiRiskCard{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+#riskLevel{
+
+    color:#003366;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+}
+
+#riskMessage{
+
+    font-size:20px;
+
+    font-weight:bold;
+}
