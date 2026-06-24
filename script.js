@@ -710,11 +710,8 @@ function loadBoatRegistry(){
 
             <td>${boat.owner}</td>
 
-            <td>${statusBadge}</td>
+<td>${statusBadge}</td>
 
-            <td>
-
-    <button
 <td>
 
     <button
@@ -748,7 +745,6 @@ function loadBoatRegistry(){
 </tr>
 
 `;
-
     html += `</table>`;
 
     registry.innerHTML = html;
