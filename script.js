@@ -1004,17 +1004,39 @@ const map = L.map("mapContainer")
 
     // Harbour Zone
 
-    L.circle(
-        [17.6950,83.3050],
-        {
-            color:'green',
-            fillColor:'#00ff00',
-            fillOpacity:0.20,
-            radius:1500
-        }
-    )
-    .addTo(map)
-    .bindPopup("⚓ Visakhapatnam Fishing Harbour");
+L.circle(
+    [17.6950,83.3050],
+    {
+        color:'green',
+        fillColor:'#00ff00',
+        fillOpacity:0.20,
+        radius:1500
+    }
+)
+.addTo(map)
+.bindPopup(`
+<b>⚓ Visakhapatnam Fishing Harbour</b><br><br>
+
+🚢 Registered Boats : ${boats.length}<br>
+
+🌊 At Sea : ${
+boats.filter(
+boat => boat.status === "At Sea"
+).length
+}<br>
+
+⚓ In Harbour : ${
+boats.filter(
+boat => boat.status === "Reached Harbour"
+).length
+}<br>
+
+🚨 SOS Alerts : ${
+boats.filter(
+boat => boat.status === "EMERGENCY SOS"
+).length
+}
+`);
 
     // Route Line
 
