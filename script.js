@@ -600,6 +600,9 @@ function loadBoatRegistry(){
 }window.loadBoatRegistry = loadBoatRegistry;
 window.updateClock = updateClock;
 window.selectBoat = selectBoat;
+function closeBoatModal(){
+    document.getElementById("boatModal").style.display = "none";
+}
 window.closeBoatModal = closeBoatModal;
 
 async function loadFirebaseBoats() {
@@ -648,13 +651,6 @@ function loadSOSHistory(){
     boats.filter(
         boat => boat.status === "EMERGENCY SOS"
     );
-if(sosBoats.length > 0){
-
-    showSOSPopup(
-        sosBoats[0]
-    );
-
-}
     if(sosBoats.length === 0){
 
         document.getElementById(
@@ -981,13 +977,15 @@ Andhra Pradesh
 
 window.addEventListener("load", function(){
 
+console.log("Map Loading...");
+
     const mapContainer =
     document.getElementById("mapContainer");
 
     if(!mapContainer) return;
 
     const map = L.map("mapContainer")
-    .setView([17.6500,83.3500],11);
+    .setView([17.6500,83.3500],12);
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -999,7 +997,7 @@ window.addEventListener("load", function(){
     // Harbour Zone
 
  L.circle(
-    [17.6850,83.2850],
+    [17.6950,83.3050],
     {
         color:'green',
         fillColor:'#00ff00',
@@ -1010,11 +1008,9 @@ window.addEventListener("load", function(){
 .addTo(map)
 .bindPopup("⚓ Visakhapatnam Fishing Harbour");
 const boatIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/3063/3063188.png",
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
     iconSize: [40,40],
-
     iconAnchor: [20,20],
-
     popupAnchor: [0,-15]
 });
 
