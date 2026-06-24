@@ -1005,8 +1005,34 @@ console.log("Map Loading...");
         radius:1500
     }
 )
+L.polyline(
+[
+    [17.6950,83.3050],
+    [17.6550,83.3400],
+    [17.6350,83.3700],
+    [17.6150,83.4000],
+    [17.5950,83.4400],
+    [17.5750,83.4800]
+],
+{
+    color:"blue",
+    dashArray:"10,10"
+}
+).addTo(map);
 .addTo(map)
-.bindPopup("⚓ Visakhapatnam Fishing Harbour");
+.bindPopup(`
+<b>⚓ Visakhapatnam Fishing Harbour</b><br>
+Registered Boats : ${boats.length}<br>
+At Sea : ${
+boats.filter(b=>b.status==="At Sea").length
+}<br>
+In Harbour : ${
+boats.filter(b=>b.status==="Reached Harbour").length
+}<br>
+SOS Alerts : ${
+boats.filter(b=>b.status==="EMERGENCY SOS").length
+}
+`);
 const boatIcon = L.icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
     iconSize: [40,40],
@@ -1020,10 +1046,13 @@ L.marker([17.6550,83.3400],{icon:boatIcon})
 .addTo(map)
 .bindPopup(`
 <b>🚢 INDAPV001</b><br>
+Boat Name : Sri Lakshmi<br>
 Owner : Ramesh<br>
-Status : At Sea
+Crew : 8 Members<br>
+Status : 🌊 At Sea<br>
+Tracker ID : GPS1001<br>
+Last Updated : ${new Date().toLocaleTimeString()}
 `);
-
 L.marker([17.6350,83.3700],{icon:boatIcon})
 .addTo(map)
 .bindPopup(`
