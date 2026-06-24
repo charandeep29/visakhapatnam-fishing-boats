@@ -253,13 +253,17 @@ window.onload = function(){
 
     }
 
+    if(typeof loadFirebaseBoats === "function"){
     loadFirebaseBoats();
+}
 
-    setInterval(() => {
+setInterval(() => {
 
+    if(typeof loadFirebaseBoats === "function"){
         loadFirebaseBoats();
+    }
 
-    }, 5000);
+}, 5000);
 };
 function adminLogin(){
 
@@ -604,6 +608,7 @@ function closeBoatModal(){
     document.getElementById("boatModal").style.display = "none";
 }
 window.closeBoatModal = closeBoatModal;
+window.downloadReport = downloadReport;
 
 async function loadFirebaseBoats() {
 
@@ -982,8 +987,13 @@ window.addEventListener("load", function(){
 
     if(!mapContainer) return;
 
-    const map = L.map("mapContainer")
-    .setView([17.6500,83.3500],12);
+if(typeof L === "undefined"){
+    console.error("Leaflet not loaded");
+    return;
+}
+
+const map = L.map("mapContainer")
+.setView([17.6500,83.3500],12);
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
