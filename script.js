@@ -715,6 +715,9 @@ function loadBoatRegistry(){
             <td>
 
     <button
+<td>
+
+    <button
     class="view-btn"
     onclick="selectBoat('${boat.boatNumber}')">
     👁 View
@@ -725,27 +728,26 @@ function loadBoatRegistry(){
         ?
         `
         <button onclick="editBoat('${boat.id}')">
-✏ Edit
-</button>
+        ✏ Edit
+        </button>
 
-<button onclick="deleteBoat('${boat.id}')">
-🗑 Delete
-</button>
+        <button onclick="deleteBoat('${boat.id}')">
+        🗑 Delete
+        </button>
 
-<button onclick="sendSOS('${boat.id}')">
-🚨 SOS
-</button>
-   
+        <button onclick="sendSOS('${boat.id}')">
+        🚨 SOS
+        </button>
+        `
         :
         ""
     }
+
 </td>
 
-        </tr>
+</tr>
 
-        `;
-
-    });
+`;
 
     html += `</table>`;
 
@@ -1022,11 +1024,21 @@ function updateAIRisk(){
         "Large Number Of Boats At Sea. Monitor Conditions.";
     }
 
-    document.getElementById("riskLevel").innerHTML =
+    const riskLevel =
+document.getElementById("riskLevel");
+
+const riskMessage =
+document.getElementById("riskMessage");
+
+if(riskLevel && riskMessage){
+
+    riskLevel.innerHTML =
     "Risk Level : " + risk;
 
-    document.getElementById("riskMessage").innerHTML =
+    riskMessage.innerHTML =
     message;
+
+}
 }
 function updateWeatherAlert(windSpeed){
 
