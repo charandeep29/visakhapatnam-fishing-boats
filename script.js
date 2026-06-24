@@ -327,6 +327,38 @@ async function editBoat(id){
     }
 
 }
+async function sendSOS(id){
+
+    try{
+
+        await window.updateDoc(
+            window.doc(
+                window.db,
+                "boats",
+                id
+            ),
+            {
+                status:"EMERGENCY SOS"
+            }
+        );
+
+        await loadFirebaseBoats();
+
+        openSuccessPopup(
+            "🚨 SOS Activated",
+            "Emergency Alert Sent Successfully"
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert("SOS Failed");
+
+    }
+
+}
 
 // ==========================
 // PAGE LOAD
@@ -689,16 +721,18 @@ function loadBoatRegistry(){
         isAdmin
         ?
         `
-        <button
-        onclick="editBoat('${boat.id}')">
-        ✏ Edit
-        </button>
+        <button onclick="editBoat('${boat.id}')">
+✏ Edit
+</button>
 
-        <button
-        onclick="deleteBoat('${boat.id}')">
-        🗑 Delete
-        </button>
-        `
+<button onclick="deleteBoat('${boat.id}')">
+🗑 Delete
+</button>
+
+<button onclick="sendSOS('${boat.id}')">
+🚨 SOS
+</button>
+   
         :
         ""
     }
@@ -713,7 +747,8 @@ function loadBoatRegistry(){
     html += `</table>`;
 
     registry.innerHTML = html;
-}window.loadBoatRegistry = loadBoatRegistry;
+}
+window.loadBoatRegistry = loadBoatRegistry;
 window.updateClock = updateClock;
 window.selectBoat = selectBoat;
 
