@@ -977,8 +977,6 @@ Andhra Pradesh
 
 window.addEventListener("load", function(){
 
-console.log("Map Loading...");
-
     const mapContainer =
     document.getElementById("mapContainer");
 
@@ -996,92 +994,60 @@ console.log("Map Loading...");
 
     // Harbour Zone
 
- L.circle(
-    [17.6950,83.3050],
+    L.circle(
+        [17.6950,83.3050],
+        {
+            color:'green',
+            fillColor:'#00ff00',
+            fillOpacity:0.20,
+            radius:1500
+        }
+    )
+    .addTo(map)
+    .bindPopup("⚓ Visakhapatnam Fishing Harbour");
+
+    // Route Line
+
+    L.polyline(
+    [
+        [17.6950,83.3050],
+        [17.6550,83.3400],
+        [17.6350,83.3700],
+        [17.6150,83.4000],
+        [17.5950,83.4400],
+        [17.5750,83.4800]
+    ],
     {
-        color:'green',
-        fillColor:'#00ff00',
-        fillOpacity:0.20,
-        radius:1500
+        color:"blue",
+        dashArray:"10,10"
     }
-)
-L.polyline(
-[
-    [17.6950,83.3050],
-    [17.6550,83.3400],
-    [17.6350,83.3700],
-    [17.6150,83.4000],
-    [17.5950,83.4400],
-    [17.5750,83.4800]
-],
-{
-    color:"blue",
-    dashArray:"10,10"
-}
-).addTo(map);
-.addTo(map)
-.bindPopup(`
-<b>⚓ Visakhapatnam Fishing Harbour</b><br>
-Registered Boats : ${boats.length}<br>
-At Sea : ${
-boats.filter(b=>b.status==="At Sea").length
-}<br>
-In Harbour : ${
-boats.filter(b=>b.status==="Reached Harbour").length
-}<br>
-SOS Alerts : ${
-boats.filter(b=>b.status==="EMERGENCY SOS").length
-}
-`);
-const boatIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
-    iconSize: [40,40],
-    iconAnchor: [20,20],
-    popupAnchor: [0,-15]
+    ).addTo(map);
+
+    const boatIcon = L.icon({
+        iconUrl:"https://cdn-icons-png.flaticon.com/512/3448/3448339.png",
+        iconSize:[40,40],
+        iconAnchor:[20,20],
+        popupAnchor:[0,-15]
+    });
+
+    L.marker([17.6550,83.3400],{icon:boatIcon})
+    .addTo(map)
+    .bindPopup("🚢 INDAPV001");
+
+    L.marker([17.6350,83.3700],{icon:boatIcon})
+    .addTo(map)
+    .bindPopup("🚢 INDAPV002");
+
+    L.marker([17.6150,83.4000],{icon:boatIcon})
+    .addTo(map)
+    .bindPopup("🚢 INDAPV003");
+
+    L.marker([17.5950,83.4400],{icon:boatIcon})
+    .addTo(map)
+    .bindPopup("🚢 INDAPV004");
+
+    L.marker([17.5750,83.4800],{icon:boatIcon})
+    .addTo(map)
+    .bindPopup("🚢 INDAPV005");
+
 });
-
-    // Boats
-
-L.marker([17.6550,83.3400],{icon:boatIcon})
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV001</b><br>
-Boat Name : Sri Lakshmi<br>
-Owner : Ramesh<br>
-Crew : 8 Members<br>
-Status : 🌊 At Sea<br>
-Tracker ID : GPS1001<br>
-Last Updated : ${new Date().toLocaleTimeString()}
-`);
-L.marker([17.6350,83.3700],{icon:boatIcon})
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV002</b><br>
-Owner : Suresh<br>
-Status : At Sea
-`);
-
-L.marker([17.6150,83.4000],{icon:boatIcon})
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV003</b><br>
-Owner : Ravi<br>
-Status : At Sea
-`);
-
-L.marker([17.5950,83.4400],{icon:boatIcon})
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV004</b><br>
-Owner : Ganesh<br>
-Status : At Sea
-`);
-
-L.marker([17.5750,83.4800],{icon:boatIcon})
-.addTo(map)
-.bindPopup(`
-<b>🚢 INDAPV005</b><br>
-Owner : Sai<br>
-Status : At Sea
-`);
-}); 
